@@ -1,0 +1,35 @@
+.election{
+    background-color: black;
+    color: white;
+}
+.election h1{
+    text-align: center;
+    color: white ;
+}.candidat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  canvas{
+    background-color: whitesmoke;
+  }
+  
+  
+  .candidat-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+  }
+  
+  .winner {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .winner h1 {
+    font-size: 3rem;
+    color: #4caf50;
+    font-weight: bold;
+  }
+  

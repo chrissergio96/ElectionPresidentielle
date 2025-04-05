@@ -1,0 +1,45 @@
+.info-candidats {
+    padding: 20px;
+    background-color: black;
+  }
+  .info-candidats h2{
+    color: white;
+    font-size: 40px;
+  }
+  
+  .candidats-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:space-between ;
+  }
+  
+  .candidat-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .candidat-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .candidat-info {
+    margin-top: 10px;
+  }
+  
+  .candidat-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .candidat-info p {
+    margin: 5px 0;
+  }
+  
