@@ -1,7 +1,4 @@
-.info-candidats {
-    padding: 20px;
-    background-color: black;
-  }
+
   .info-candidats h2{
     color: white;
     font-size: 40px;
@@ -14,21 +11,17 @@
     justify-content:space-between ;
   }
   
-  .candidat-card {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .info-candidats {
+    padding: 20px;
+    background-color: #1B3D71;
   }
   
-  .candidat-img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 4px;
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
   }
+  
   
   .candidat-info {
     margin-top: 10px;

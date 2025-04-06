@@ -1,13 +1,12 @@
 import React from 'react';
-import ElectionResults from '../ElectionResults/ElectionsResults.jsx'; // Import correct du composant
-import InfosCandidats from '../InfoCandidats/InfosCandidats.jsx';
+import Infoscandidats from '../InfoCandidats/Infoscand.jsx';
+import FicheCandidats from '../FichesCandidat/FicheCandidats.js';
 
 function ResultatsElection() {
   return (
     <div>
-      <InfosCandidats />
-      <ElectionResults /> ;
-      
+      <FicheCandidats />
+      <Infoscandidats/>
       
     </div>
   );

@@ -4,21 +4,29 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const http = require('http');
 const socketIo = require('socket.io');
+const candidatsRoutes = require('./routes/candidatsRoutes');
+const electeursRoutes = require('./routes/electeursRoutes');
+const votesRoutes = require('./routes/votesRoutes');
 
 // Création de l'application Express
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server); // Socket.io pour la mise à jour en temps réel
+const io = socketIo(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  }
+});
 
-// Configuration du CORS (pour permettre l'accès à l'API depuis le frontend)
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Connexion à la base de données MySQL
+// Connexion à la base de données
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',  // Remplace par ton utilisateur
-  password: '',  // Remplace par ton mot de passe
+  user: 'root',
+  password: '',
   database: 'election_db'
 });
 
@@ -29,25 +37,26 @@ db.connect(err => {
   }
   console.log('Connecté à la base de données MySQL.');
 });
-// Route pour récupérer les votes en temps réel
-app.get('/votes', (req, res) => {
-  db.query('SELECT id_candidat, COUNT(*) AS votes FROM votes GROUP BY id_candidat', (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json(results);
-  });
-});
 
-// WebSocket pour envoyer les mises à jour des votes
+// Utilisation des routes
+app.use('/candidats', candidatsRoutes);
+app.use('/electeurs', electeursRoutes);
+app.use('/votes', votesRoutes);
+
+// Socket.IO : Connexion
 io.on('connection', (socket) => {
   console.log('Un utilisateur est connecté via WebSocket.');
 
-  socket.on('newVote', () => {
+  // Lorsqu'un vote est ajouté, émettre les résultats mis à jour
+  socket.on('voteAdded', () => {
     db.query('SELECT id_candidat, COUNT(*) AS votes FROM votes GROUP BY id_candidat', (err, results) => {
-      if (!err) {
-        io.emit('updateVotes', results);
+      if (err) {
+        console.error('Erreur lors de la récupération des résultats des votes : ', err);
+        return;
       }
+
+      // Émettre l'événement avec les nouveaux résultats
+      io.emit('updateVotes', results);
     });
   });
 
@@ -56,60 +65,7 @@ io.on('connection', (socket) => {
   });
 });
 
-
-// Routes de l'API
-app.get('/candidats', (req, res) => {
-  db.query('SELECT * FROM candidats', (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json(results);
-  });
-});
-
-app.get('/electeurs', (req, res) => {
-  db.query('SELECT * FROM electeurs', (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json(results);
-  });
-});
-app.post('/candidats', (req, res) => {
-  const { nom } = req.body;
-
-  const sql = `INSERT INTO candidats (nom, photo) VALUES ('${nom}')`;
-
-  db.query(sql, (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json({ message: 'Candidat ajouté avec succès !' });
-  });
-});
-
-
-app.post('/votes', (req, res) => {
-  const { id_candidat, date_vote } = req.body;
-  db.query('INSERT INTO votes (id_candidat, date_vote) VALUES (?, ?)', [id_candidat, date_vote], (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    io.emit('newVote', { id_candidat, date_vote });  // Envoi de la mise à jour en temps réel
-    res.status(201).json(result);
-  });
-});
-
-// WebSocket pour la mise à jour en temps réel
-io.on('connection', (socket) => {
-  console.log('Un utilisateur est connecté via WebSocket.');
-
-  socket.on('disconnect', () => {
-    console.log('Un utilisateur est déconnecté.');
-  });
-});
-
-// Démarrer le serveur sur le port 5000
-server.listen(5000, () => {
-  console.log('Serveur en écoute sur le port 5000');
+// Démarrage du serveur
+server.listen(5001, () => {
+  console.log('Serveur en écoute sur le port 5001');
 });
