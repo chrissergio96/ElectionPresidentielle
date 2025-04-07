@@ -1,68 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import io from 'socket.io-client';
 import { Chart, registerables, CategoryScale } from 'chart.js';
 import './ElectionsResults.css';
 
 Chart.register(...registerables, CategoryScale);
 
 const ElectionResults = () => {
-  const [candidats, setCandidats] = useState([]);
-  const [votes, setVotes] = useState([]);
-  const [totalVotes, setTotalVotes] = useState(0);
-  const [winner, setWinner] = useState(null);
+  // Données simulées des candidats et des votes
+  const candidatsData = [
+    { id_candidat: 1, nom: 'Alain Simplice Boungouères' },
+    { id_candidat: 2, nom: 'Brice Clotaire Oligui Nguema' },
+    { id_candidat: 3, nom: 'Zenaba Gninga Chaning' },
+    { id_candidat: 4, nom: 'Joseph Lapensée Essingone' },
+    { id_candidat: 5, nom: 'Stéphane Germain Iloko' },
+    { id_candidat: 6, nom: 'Axel Stophène Ibinga Ibinga' },
+    { id_candidat: 7, nom: 'Alain-Claude Bilié By Nzé' },
+    { id_candidat: 8, nom: 'Thierry Yvon Michel Ngoma' },
+  ];
 
-  useEffect(() => {
-    const socket = io('http://localhost:5000');
+  // Données simulées des votes
+  const [votes] = useState([
+    { id_candidat: 1, votes: 4000 },
+    { id_candidat: 2, votes: 3500 },
+    { id_candidat: 3, votes: 1500 },
+    { id_candidat: 4, votes: 1200 },
+    { id_candidat: 5, votes: 900 },
+    { id_candidat: 6, votes: 800 },
+    { id_candidat: 7, votes: 700 },
+    { id_candidat: 8, votes: 600 },
+  ]);
 
-    socket.on('newVote', (data) => {
-      setVotes((prevVotes) =>
-        prevVotes.map(v =>
-          v.id_candidat === data.id_candidat ? { ...v, votes: v.votes + 1 } : v
-        )
-      );
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/candidats')
-      .then(response => response.json())
-      .then(data => setCandidats(data));
-
-      fetch('http://localhost:5000/electeurs')
-      .then(response => response.json())
-      .then(data => {
-        console.log("Réponse des électeurs:", data);
-    
-        const electeurs = Array.isArray(data) ? data : data.electeurs || [];
-        const total = electeurs.reduce((acc, electeur) => acc + (electeur.votes_exprimes || 0), 0);
-    
-        setTotalVotes(total);
-        setVotes(electeurs.map(v => ({
-          id_candidat: v.id_candidat,
-          votes: v.votes_exprimes || 0
-        })));
-      });
-    
-  }, []);
-
-  useEffect(() => {
-    if (votes.length > 0) {
-      const maxVotes = Math.max(...votes.map(v => v.votes));
-      const winnerCandidate = candidats.find(c => c.id_candidat === votes.find(v => v.votes === maxVotes)?.id_candidat);
-      setWinner(winnerCandidate);
-    }
-  }, [votes, candidats]);
+  const totalVotes = votes.reduce((acc, curr) => acc + curr.votes, 0);
 
   const chartData = {
-    labels: candidats.map(c => c.nom),
+    labels: candidatsData.map(c => c.nom),
     datasets: [{
       label: 'Votes obtenus',
-      data: candidats.map(c => votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0),
+      data: candidatsData.map(c => votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0),
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
       borderColor: 'rgba(75, 192, 192, 1)',
       borderWidth: 3,
@@ -73,6 +47,11 @@ const ElectionResults = () => {
     return totalVotes > 0 ? ((votesForCandidat / totalVotes) * 100).toFixed(2) : 0;
   };
 
+  const winner = candidatsData.find(c => {
+    const maxVotes = Math.max(...votes.map(v => v.votes));
+    return votes.find(v => v.id_candidat === c.id_candidat && v.votes === maxVotes);
+  });
+
   return (
     <div className='election'>
       <h1>Résultats des Élections</h1>
@@ -81,7 +60,7 @@ const ElectionResults = () => {
 
       <h2>Détail des votes par candidat</h2>
       <ul>
-        {candidats.map(c => {
+        {candidatsData.map(c => {
           const candidatVotes = votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0;
           const percentage = getPercentage(candidatVotes);
 
