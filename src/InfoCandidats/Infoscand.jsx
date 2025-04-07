@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-import io from 'socket.io-client';
-import axios from 'axios';
 import './Infoscand.css';
 
-const socket = io('http://localhost:5000'); // Connexion WebSocket
-
 const Infoscand = () => {
+  // Données simulées des candidats
   const candidatsData = [
     { id_candidat: 1, nom: 'Alain Simplice Boungouères' },
     { id_candidat: 2, nom: 'Brice Clotaire Oligui Nguema' },
@@ -18,34 +15,17 @@ const Infoscand = () => {
     { id_candidat: 8, nom: 'Thierry Yvon Michel Ngoma' },
   ];
 
-  const [votes, setVotes] = useState({});
-
-  const fetchVotes = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/votes');
-      const votesMap = response.data.reduce((acc, vote) => {
-        acc[vote.id_candidat] = vote.votes;
-        return acc;
-      }, {});
-      setVotes(votesMap);
-    } catch (error) {
-      console.error("Erreur lors du chargement des votes :", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchVotes();
-
-    socket.on('updateVotes', (updatedVotes) => {
-      const votesMap = updatedVotes.reduce((acc, vote) => {
-        acc[vote.id_candidat] = vote.votes;
-        return acc;
-      }, {});
-      setVotes(votesMap);
-    });
-
-    return () => socket.off('updateVotes');
-  }, []);
+  // Données simulées des votes
+  const [votes] = useState([
+    { id_candidat: 1, votes: 0 },
+    { id_candidat: 2, votes: 0 },
+    { id_candidat: 3, votes: 0 },
+    { id_candidat: 4, votes: 0 },
+    { id_candidat: 5, votes: 0 },
+    { id_candidat: 6, votes: 0 },
+    { id_candidat: 7, votes: 0 },
+    { id_candidat: 8, votes: 0 },
+  ]);
 
   return (
     <div className="info-candidats">
@@ -54,9 +34,8 @@ const Infoscand = () => {
         <BarChart
           data={candidatsData.map(c => ({
             name: c.nom,
-            votes: votes[c.id_candidat] || 0
-          }))}
-        >
+            votes: votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0
+          }))}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" tick={{ fontSize: 12 }} />
           <YAxis />
