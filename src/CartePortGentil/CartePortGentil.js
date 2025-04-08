@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Polygon, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Polygon, Popup ,Tooltip} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './CartePortGentil.css';
 
 const dataArrondissements = [
   {
     name: "1er Arrondissement",
+    centre:"global",
     coords: [
       [-0.6874841, 8.7667810], [-0.7142010, 8.7862120], [-0.7185334, 8.7774593], [-0.7163216, 8.7694520], [-0.7184652, 8.7555585], [-0.7024199, 8.7613095]
-    ],
-    winner: "Alain Claude Billie Bi Nze",
-    centres: [
-      { nom: "Centre de vote 1", adresse: "École Martine Publique Balise 2 - NGADI" },
-      { nom: "Centre de vote 2", adresse: "École Joseph AMBOUROUET AVARO" },
-      { nom: "Centre de vote 3", adresse: "Centre de Formation Professional et de Perfectionnement" },
-      { nom: "Centre de vote 4", adresse: "École publique de la Cité" }
-
     ],
     color: "blue"
   },
   {
     name: "2e Arrondissement",
+    centre:"global",
     coords: [
       [-0.7151979, 8.7862327], [-0.7191433, 8.7778459], [-0.7173559, 8.7689663], [-0.7196959, 8.7560876], [-0.7277240, 8.7525822], [-0.7319684, 8.7495588], [-0.7421631, 8.7596250], [-0.7455053, 8.7679787], [-0.7455053, 8.7679787], [-0.7336982, 8.7742638], [-0.7258702, 8.7800666], [-0.7258702, 8.7800666], [-0.7258702, 8.7800666], [-0.7213049, 8.7885773]
     ],
-  
     color: "green" 
   },
   {
@@ -37,19 +30,15 @@ const dataArrondissements = [
        [-0.7268737, 8.7741605]
     ],
     winner: "Candidat B",
-    centres: [
-      { nom: "Centre de vote 1", adresse: "Centre Social" },
-      { nom: "Centre de vote 2", adresse: "École publique Abbé YOYA" },
-      { nom: "Centre de vote 3", adresse: "École publique AMBOUROUE AVARO" },
-      { nom: "Centre de vote 4", adresse: "École Sainte Thérèse" },
-      { nom: "Centre de vote 5", adresse: "École publique Ancienne Balise" },
-      { nom: "Centre de vote 6", adresse: "École Prostestante" },
-      { nom: "Centre de vote 7", adresse: "École du Stade Blanc 1 - Balise" },
-      { nom: "Centre de vote 8", adresse: "École du Stade Blanc 2 - Henri Clément" },
-
-    ],
+    resultat: [
+        { nom: "Alain Claude Billie-Bi-Nze", votes: "1000" },
+        { nom: "Brice Clotaire Oligui Nguema", votes: "300" },
+        { nom: "Zenaba Gninga Chaning", votes: "500" },
+  
+      ],
     color: "white" 
   },
+
   {
     name: "Mairie du 1er Arrondissement",
     centre:"principal",
@@ -59,16 +48,81 @@ const dataArrondissements = [
       [-0.7178093, 8.7749528],
       [-0.7180088, 8.7767323]
     ],
-    winner: "Alain Claude Billie Bi Nze",
-    centres: [
-      { nom: "Centre de vote 1", adresse: "École Martine Publique Balise 2 - NGADI" },
-      { nom: "Centre de vote 2", adresse: "École Joseph AMBOUROUET AVARO" },
-      { nom: "Centre de vote 3", adresse: "Centre de Formation Professional et de Perfectionnement" },
-      { nom: "Centre de vote 4", adresse: "École publique de la Cité" }
+    resultat: [
+        { nom: "Alain Claude Billie-Bi-Nze", votes: "1000" },
+        { nom: "Brice Clotaire Oligui Nguema", votes: "300" },
+        { nom: "Zenaba Gninga Chaning", votes: "500" },
+  
+      ],
+    color: "red" 
+  }
+  ,
+  {
+    name: "Zenaba Gninga Chaning ",
+    centre:"Vainqueur",
+     votes: "100%",
+    coords: [
+      [-0.7122964,8.7959383],
+    ],
+    color: "red" 
+  },
+ 
+//   les bureaux
+
+  {
+    name: "Ecole publique Balise 2",
+    centre:"pointcentre",
+
+    coords: [
+      [-0.7205230, 8.7688796],[-0.7207167,8.7691724], 
+      [-0.7213145,8.7686883], [-0.7210522,8.7683583], 
+
+    ],
+
+    resultat: [
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "1000" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "300" },
+      { nom: "Zenaba Gninga Chaning", votes: "500" },
+
+    ],
+    color: "red" 
+  },
+  {
+    name: "Lycée Joseph Ambourouet Avaro ",
+    centre:"pointcentre",
+
+    coords: [
+      [-0.7106946,8.7728321],[-0.7098247,8.7743136], 
+      [-0.7123888,8.7738867], [-0.7118331,8.7752086], 
+
+    ],
+
+    resultat: [
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "1000" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "300" },
+      { nom: "Zenaba Gninga Chaning", votes: "500" },
 
     ],
     color: "red" 
   }
+  ,
+  {
+    name: "CFPP ",
+    centre:"pointcentre",
+
+    coords: [
+      [-0.7167705,8.7784792],[-0.7173235,8.7788054],[-0.7177276,8.7778267],[-0.7170621,8.7775471] 
+    ],
+
+    resultat: [
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "1000" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "300" },
+      { nom: "Zenaba Gninga Chaning", votes: "500" },
+
+    ],
+    color: "red" 
+  }
+
 ];
 
 const CartePortGentil = () => {
@@ -86,32 +140,133 @@ const CartePortGentil = () => {
       <MapContainer center={[-0.720, 8.78]} zoom={14} scrollWheelZoom={false} className="map">
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {dataArrondissements.map((arr, index) => (
-          <Polygon
-            key={index}
-            positions={arr.coords}
-            pathOptions={{ color: arr.color }}
-            eventHandlers={{ click: () => handleClick(arr) }}
-          >
-            {selectedArrondissement?.name === arr.name && (
-              <Popup>
-                <div>
-                  <h3>{arr.name}</h3>
-                  <p><strong>Vainqueur :</strong> {arr.winner}</p>
-                  <h4>Centres de vote :</h4>
-                  <ul>
-                    {arr.centres.map((centre, i) => (
-                      <li key={i}>
-                        <strong>{centre.nom}</strong><br />
-                        {centre.adresse}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Popup>
+        {dataArrondissements.map((arr, index) => {
+  // Cas "pointcentre"
+  if (arr.centre === "pointcentre") {
+    return (
+      <Polygon
+        key={index}
+        positions={arr.coords}
+        pathOptions={{ color: arr.color }}
+        eventHandlers={{
+          mouseover: (e) => e.target.openPopup(),
+          mouseout: (e) => e.target.closePopup(),
+        }}
+      >
+        <Tooltip
+          direction="center"
+          sticky
+          className="labels-centre"
+        >
+          <img
+            src="https://www.svgrepo.com/show/376794/box.svg"
+            alt="icone"
+            style={{ width: "16px", marginRight: "5px" }}
+          />
+          <p>{arr.name}</p>
+        </Tooltip>
+
+        <Popup>
+          <div>
+            <h3>{arr.name}</h3>
+            {arr.resultat && (
+              <>
+                <h4>Résultat de vote :</h4>
+                <ul>
+                  {arr.resultat.map((resultat, i) => (
+                    <li key={i}>
+                      <strong>{resultat.nom}</strong><br />
+                      {resultat.votes}
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
-          </Polygon>
-        ))}
+          </div>
+        </Popup>
+      </Polygon>
+    );
+  }
+
+  if (arr.centre === "Vainqueur") {
+    return (
+      <Polygon
+        key={index}
+        positions={arr.coords}
+        pathOptions={{ color: arr.color }}
+      >
+        <Tooltip
+          direction="center"
+          permanent
+          className="arrondissement-labelvq"
+        >
+            <img
+              src="https://election-presidentielle.vercel.app/zenaba.webp"
+              alt="icone"
+              style={{ width: "70%",height:"110px", marginRight: "5px" ,borderRadius:"100%"}}
+            />
+          <p>{arr.name}</p>
+          <span>{arr.votes}de votes</span>
+        </Tooltip>
+  
+      </Polygon>
+    );
+  }
+  
+
+  // Tous les autres cas : global ou principal
+  return (
+    <Polygon
+      key={index}
+      positions={arr.coords}
+      pathOptions={{ color: arr.color }}
+      eventHandlers={{ click: () => handleClick(arr) }}
+    >
+    
+      {arr.centre === "global" && (
+        <Tooltip
+          direction="center"
+          permanent
+          className="arrondissement-label"
+        >
+          <p>{arr.name}</p>
+        </Tooltip>
+      )}
+      {arr.centre === "principal" && (
+        <Tooltip
+          direction="center"
+          permanent
+          className="arrondissement-labels"
+        >
+          <img src="https://www.svgrepo.com/show/376939/library.svg" alt="icone" style={{ width: "16px", marginRight: "5px" }} />
+          <p>{arr.name}</p>
+        </Tooltip>
+      )}
+      {selectedArrondissement?.name === arr.name && (
+        <Popup>
+          <div>
+            <h3>{arr.name}</h3>
+            {arr.resultat && (
+              <>
+                <h4>Résultat de vote :</h4>
+                <ul>
+                  {arr.resultat.map((resultat, i) => (
+                    <li key={i}>
+                      <strong>{resultat.nom}</strong><br />
+                      {resultat.votes}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        </Popup>
+      )}
+    </Polygon>
+  );
+})}
+
+
       </MapContainer>
     </div>
   );
