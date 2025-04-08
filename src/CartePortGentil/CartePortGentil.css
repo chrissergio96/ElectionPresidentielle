@@ -21,6 +21,55 @@
     height: 200px;
     background-color: black;
   }
+  .arrondissement-label{
+    background-color: rgba(1, 102, 102, 0.489);
+    height: 20px;
+    align-items: center;
+    display: flex;
+  }
+  .arrondissement-label p{
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .arrondissement-labelvq{
+    background-color: rgba(223, 233, 233, 0.489);
+    height: 200px;
+    width: 150px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .arrondissement-labelvq p{
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(1, 28, 64);
+  }
+
+  .arrondissement-labels{
+    background-color: rgba(149, 63, 2, 0.498);
+    color: white;
+    display: flex;
+    height: 20px;
+    align-items: center;
+  }
+  .arrondissement-labels p{
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .labels-centre{
+    background-color: rgba(149, 2, 146, 0.467);
+    color: white;
+    display: flex;
+    height: 20px;
+    align-items: center;
+    transition: transform 0.3s ease !important;
+  }
+  .labels-centre p{
+    font-size: 10px;
+    font-weight: bold;
+  }
   
   @media (max-width: 768px) {
     .map {
