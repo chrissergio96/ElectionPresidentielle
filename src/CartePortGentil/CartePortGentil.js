@@ -40,7 +40,7 @@ const dataArrondissements = [
     color: "blue"
   },
   {
-    name: "2e Arrondissement",
+    name: "2e ndissement",
     centre: "global",
     coords: [
       [-0.7151979, 8.7862327], [-0.7191433, 8.7778459], [-0.7173559, 8.7689663], 
