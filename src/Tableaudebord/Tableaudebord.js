@@ -3,7 +3,10 @@ import FicheCandidats from '../FichesCandidat/FicheCandidats';
 import Infoscandidats from '../InfoCandidats/Infoscand';
 import BilanBureaux from '../BilanBureaux/BilanBureaux';
 import './Tableaudebord.css';
-import CartePortGentil from '../CartePortGentil/CartePortGentil'; // Composant par défaut
+import Accueil from '../PageAccueil/PageAccueil';
+import CartePortGentil from '../CartePortGentil/CartePortGentil';
+import PageAccueil from '../PageAccueil/PageAccueil'
+
 
 const Tableaudebord = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -25,6 +28,8 @@ const Tableaudebord = () => {
       <div className="sidebar">
         <h2>Tableau de bord</h2>
         <ul>
+          <li><button onClick={() => handleButtonClick('accueil')}>Accueil</button></li>
+          <li><button onClick={() => handleButtonClick('carte')}>Vue Carte</button></li>
           <li><button onClick={() => handleButtonClick('ficheCandidats')}>Fiche Candidats</button></li>
           <li><button onClick={() => handleButtonClick('infoCandidats')}>Infos Candidats</button></li>
           <li><button onClick={() => handleButtonClick('bilanBureaux')}>Bilan Bureaux</button></li>
@@ -33,7 +38,7 @@ const Tableaudebord = () => {
 
       {/* Contenu principal */}
       <div className="content">
-        {!activeComponent && <CartePortGentil />} {/* Affiche la carte par défaut */}
+        {!activeComponent && <Accueil />} {/* Affiche la carte par défaut */}
         {activeComponent === 'ficheCandidats' && (
           <FicheCandidats
             selectedCandidat={selectedCandidat}
@@ -41,6 +46,8 @@ const Tableaudebord = () => {
           />
         )}
         {activeComponent === 'infoCandidats' && <Infoscandidats />}
+        {activeComponent === 'carte' && <CartePortGentil />}
+        {activeComponent === 'accueil' && <PageAccueil />}
         {activeComponent === 'bilanBureaux' && <BilanBureaux />}
       </div>
     </div>
