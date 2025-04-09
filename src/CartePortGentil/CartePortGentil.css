@@ -45,6 +45,20 @@
   font-weight: bold;
   color: rgb(1, 28, 64);
 }
+.arrondissement-labelvqA{
+  background-color: rgba(223, 233, 233, 0.489);
+  height: 60px;
+  width: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.arrondissement-labelvqA p{
+  font-size: 10px;
+  font-weight: bold;
+  color: rgb(1, 28, 64);
+}
+
 
 .arrondissement-labels{
   background-color: rgba(149, 63, 2, 0.498);
