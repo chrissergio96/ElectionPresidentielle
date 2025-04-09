@@ -303,6 +303,16 @@ const CartePortGentil = () => {
     return [lat / coords.length, lng / coords.length];
   };
 
+  // Fonction pour attribuer des couleurs en fonction du nom du candidat
+const getCandidateColor = (name) => {
+  const colors = {
+    'Brice Clotaire Oligui Nguema': '#2196F3',
+    'Alain Claude Billie-Bi-Nze': '#FF9800',
+    'Zenaba Gninga Chaning': '#9C27B0',
+    // Ajoutez d'autres candidats au besoin
+  };
+  return colors[name] || '#4CAF50'; // Couleur par défaut
+};
   const createMarkerWithLabel = (position, icon, name, resultat, isOpen = false) => {
     // Création d'une icône personnalisée avec le label intégré
     const CustomIcon = L.divIcon({
@@ -332,30 +342,50 @@ const CartePortGentil = () => {
               <>
                 <h4>Résultats:</h4>
                 <div className="results-container">
-                  {resultat.map((candidat, i) => {
-                    // Extraction de la valeur numérique (pourcentage ou voix)
-                    const voteValue = candidat.votes.includes('%') 
-                      ? parseFloat(candidat.votes.replace('%', '')) 
-                      : parseInt(candidat.votes.split(' ')[0]);
+                  {(() => {
+                    // Calcul du total des voix si ce sont des valeurs absolues
+                    const isPercentage = resultat.some(r => r.votes.includes('%'));
+                    let totalVoices = 0;
                     
-                    return (
-                      <div key={i} className="result-item">
-                        <div className="candidate-info">
-                          <strong>{candidat.nom}</strong>
-                          <span>{candidat.votes}</span>
+                    if (!isPercentage) {
+                      totalVoices = resultat.reduce((sum, candidat) => {
+                        return sum + parseInt(candidat.votes.split(' ')[0]);
+                      }, 0);
+                    }
+    
+                    return resultat.map((candidat, i) => {
+                      // Extraction de la valeur numérique
+                      let voteValue, displayValue;
+                      
+                      if (candidat.votes.includes('%')) {
+                        voteValue = parseFloat(candidat.votes.replace('%', ''));
+                        displayValue = candidat.votes;
+                      } else {
+                        const voices = parseInt(candidat.votes.split(' ')[0]);
+                        voteValue = totalVoices > 0 ? (voices / totalVoices) * 100 : 0;
+                        displayValue = candidat.votes;
+                      }
+    
+                      return (
+                        <div key={i} className="result-item">
+                          <div className="candidate-info">
+                            <strong>{candidat.nom}</strong>
+                            <span>{displayValue}</span>
+                          </div>
+                          <div className="progress-bar-container">
+                            <div 
+                              className="progress-bar" 
+                              style={{ 
+                                width: `${voteValue}%`,
+                                animation: `slideIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) ${i * 0.15}s forwards`,
+                                backgroundColor: getCandidateColor(candidat.nom)
+                              }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="progress-bar-container">
-                          <div 
-                            className="progress-bar" 
-                            style={{ 
-                              width: `${voteValue}%`,
-                              animation: `slideIn 0.5s ease-out ${i * 0.1}s forwards`
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    });
+                  })()}
                 </div>
               </>
             )}

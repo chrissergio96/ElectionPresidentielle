@@ -386,10 +386,10 @@
   }
   
 
-  /* Animation des barres de progression */
+  /* Animation */
 @keyframes slideIn {
-  from { width: 0; }
-  to { width: 100%; }
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .animated-popup {
@@ -401,38 +401,51 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Styles des résultats */
 .results-container {
-  margin-top: 10px;
-  width: 100%;
+  margin-top: 12px;
+  width: 250px;
 }
 
 .result-item {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .candidate-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4px;
-  font-size: 14px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  align-items: center;
 }
 
 .progress-bar-container {
-  height: 10px;
+  height: 8px;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: #4CAF50;
-  border-radius: 5px;
-  width: 0;
+  border-radius: 4px;
   transform-origin: left;
+  transform: scaleX(0);
 }
 
-/* Pour différencier les candidats */
-.result-item:nth-child(1) .progress-bar { background-color: #2196F3; }
-.result-item:nth-child(2) .progress-bar { background-color: #FF9800; }
-.result-item:nth-child(3) .progress-bar { background-color: #9C27B0; }
+/* Amélioration du popup */
+.popup-content {
+  padding: 5px;
+}
+
+.popup-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.popup-content h4 {
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+  color: #555;
+}
