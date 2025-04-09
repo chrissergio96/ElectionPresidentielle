@@ -5,12 +5,15 @@ import BilanBureaux from '../BilanBureaux/BilanBureaux';
 import './Tableaudebord.css';
 import Accueil from '../PageAccueil/PageAccueil';
 import CartePortGentil from '../CartePortGentil/CartePortGentil';
-import PageAccueil from '../PageAccueil/PageAccueil'
-
+import PageAccueil from '../PageAccueil/PageAccueil';
+import Panthere from './téléchargement.png'; // Noms sans accents
+import Panthere1 from './téléchargement1.png';
+import Panthere2 from './téléchargement2.png';
 
 const Tableaudebord = () => {
   const [activeComponent, setActiveComponent] = useState(null);
   const [selectedCandidat, setSelectedCandidat] = useState(null);
+  const [currentImage, setCurrentImage] = useState(Panthere); // État pour l'image
 
   const handleButtonClick = (component) => {
     setActiveComponent(component);
@@ -34,11 +37,19 @@ const Tableaudebord = () => {
           <li><button onClick={() => handleButtonClick('infoCandidats')}>Infos Candidats</button></li>
           <li><button onClick={() => handleButtonClick('bilanBureaux')}>Bilan Bureaux</button></li>
         </ul>
+        <img 
+          src={currentImage} 
+          alt="Logo" 
+          className="sidebar-logo"
+          onMouseEnter={() => setCurrentImage(Panthere2)}
+          onMouseLeave={() => setCurrentImage(Panthere1)}
+          onClick={() => setCurrentImage(Panthere)}
+        />
       </div>
 
       {/* Contenu principal */}
       <div className="content">
-        {!activeComponent && <Accueil />} {/* Affiche la carte par défaut */}
+        {!activeComponent && <Accueil />}
         {activeComponent === 'ficheCandidats' && (
           <FicheCandidats
             selectedCandidat={selectedCandidat}

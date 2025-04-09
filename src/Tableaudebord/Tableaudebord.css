@@ -14,6 +14,7 @@
     flex-direction: column;
     height: 100vh;
     position: fixed;
+    overflow-y: scroll;
   }
   
   .sidebar h2 {
@@ -73,4 +74,12 @@
       padding: 10px;
     }
   }
+  .sidebar-logo {
+    display: block;
+    transition: all 0.3s ease; /* Animation fluide */
+    cursor: pointer;
+  }
   
+  .sidebar-logo:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+  }
