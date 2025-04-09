@@ -1,0 +1,111 @@
+
+
+.presidentielle {
+    background-color: white;
+    padding: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+ 
+  .logo-gauche,
+  .logo-droit {
+    height:250px;
+    width: 250px;
+    background-color: transparent;
+  }
+  .logo-gabon{
+    height: 18px;
+    width:100px ;
+    margin-top: 2%;
+    margin-left: -4px;
+  }
+  
+  .titre {
+    flex: 1;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 20px;
+    color: #1B3D71;
+    margin-top: -7%;
+  }
+  .mereelec{
+    width: 60%;
+    justify-content: space-between;
+  }
+  .elections {
+    color: grey;
+    font-size: 32px;
+    display: flex;
+    font-weight: 550;
+    justify-content: center;
+  }
+  .elections P{
+    color: black;
+    font-size: 17px;
+    margin-left: 4%;
+    margin-top: 8px;
+  }
+  
+  .presidentielle-text {
+   display: flex;
+   justify-content: center;
+
+   
+  }
+  .presidentielle-text h4{
+    font-size: 35px;
+    margin-top: -2%;
+    color: yellow;
+    font-weight: 550;
+  }
+  .titrepresi{
+    flex: 1;
+    text-align: start;
+    font-size: 32px;
+    margin: 0 20px;
+    color: #1B3D71;
+    margin-top: -10px;
+    font-weight: 650;
+  }
+  
+  
+  .annee {
+    color: #007bff; /* bleu */
+    font-size: 30px;
+  }
+  .rectangle{
+    height: 50px;
+    width: 50%;
+    background-color: beige;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -16.5%;
+  }
+  .rectangle h6{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: -9%;
+    color: #007bff;
+    padding-top: 3px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .titre {
+      margin: 20px 0;
+    }
+  }
+  

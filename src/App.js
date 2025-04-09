@@ -13,6 +13,7 @@ import Axelstophene from './Pages/Candidatures/Axelstophene';
 import Josephlapensee from './Pages/Candidatures/Josephlapensee';
 import Stephangermain from './Pages/Candidatures/Stephangermain';
 import Thierryyvon from './Pages/Candidatures/Thierryyvon';
+import Accueil from './Pages/Accueil';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path="/Joseph Lapensée Essingone : Homme politique gabonais" element={<Josephlapensee />} />
       <Route path="/Stéphane Germain Iloko : Entrepreneur engagé" element={<Stephangermain />} />
       <Route path="/Thierry Yvon Michel Ngoma : Acteur social" element={<Thierryyvon />} />
+      <Route path="/accueil" element={<Accueil />} />
 
       </Routes>
     </Router>
