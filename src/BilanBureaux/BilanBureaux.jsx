@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './BilanBureaux.css';
 import {
   FaUsers,
@@ -6,10 +6,27 @@ import {
   FaTimesCircle,
   FaPercentage,
   FaUniversity,
-  FaVoteYea
+  FaVoteYea,
+  FaArchway,
+  FaBoxTissue
 } from 'react-icons/fa';
+import soundFile from './son1.mp3';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const BilanBureaux = () => {
+  const audioRef = useRef(null);
+  const [animatedValues, setAnimatedValues] = useState({
+    totalInscrits: 0,
+    totalVotants: 0,
+    totalNullVotes: 0,
+    totalSuffragesExprimes: 0,
+    totalAbstentions: 0,
+    percentageVotes: 0,
+    percentageAbstentions: 0,
+    percentageNull: 0
+  });
+
   const centres = {
     '1er Arrondissement': [
       { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 0, abstentions: 0, nuls: 0 },
@@ -18,12 +35,12 @@ const BilanBureaux = () => {
       { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 0, abstentions: 0, nuls: 0 },
     ],
     '2e Arrondissement': [
-      { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 3506, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 0, abstentions: 0, nuls: 200 },
+      { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 3506, votants: 500, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants: 4500, abstentions: 45, nuls: 0 },
       { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 3000, abstentions: 0, nuls: 0 },
       { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 0, abstentions: 0, nuls: 0 },
     ],
@@ -35,28 +52,127 @@ const BilanBureaux = () => {
   const totalAbstentions = allCentres.reduce((sum, c) => sum + c.abstentions, 0);
   const totalNullVotes = allCentres.reduce((sum, c) => sum + c.nuls, 0);
   const totalSuffragesExprimes = totalVotants - totalNullVotes;
-
   const percentageVotes = ((totalVotants / totalInscrits) * 100).toFixed(2);
   const percentageAbstentions = ((totalAbstentions / totalInscrits) * 100).toFixed(2);
   const percentageNull = ((totalNullVotes / totalInscrits) * 100).toFixed(2);
 
+  useEffect(() => {
+    // Démarrer la musique
+    const timer = setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play()
+          .catch(error => console.log("Auto-play prevented:", error));
+      }
+    }, 10);
+
+    // Animation des valeurs
+    const duration = 2000; // 2 secondes
+    const startTime = Date.now();
+
+    const animate = () => {
+      const now = Date.now();
+      const progress = Math.min(1, (now - startTime) / duration);
+
+      setAnimatedValues({
+        totalInscrits: Math.floor(progress * totalInscrits),
+        totalVotants: Math.floor(progress * totalVotants),
+        totalNullVotes: Math.floor(progress * totalNullVotes),
+        totalSuffragesExprimes: Math.floor(progress * totalSuffragesExprimes),
+        totalAbstentions: Math.floor(progress * totalAbstentions),
+        percentageVotes: (progress * parseFloat(percentageVotes)).toFixed(2),
+        percentageAbstentions: (progress * parseFloat(percentageAbstentions)).toFixed(2),
+        percentageNull: (progress * parseFloat(percentageNull)).toFixed(2)
+      });
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="bilan-bureaux">
-      <h1>🗳️ Commission Electorale 1er - 2e Arrondissements de Port-Gentil</h1>
+      <audio ref={audioRef} src={soundFile}  />
+      
+      <h1> <FaBoxTissue/> Commission Electorale 1er - 2e Arrondissements de Port-Gentil</h1>
 
       <section className="global-summary card">
         <h2><FaUniversity /> Résultats Électoraux</h2>
-        <ul>
-          <li><FaUsers /> <strong>Total inscrits :</strong> {totalInscrits}</li>
-          <li><FaCheckCircle color="green" /> <strong>Total votants :</strong> {totalVotants} ({percentageVotes}%)</li>
-          <li><FaPercentage color="red" /> <strong>Bulletins blancs / nuls :</strong> {totalNullVotes} ({percentageNull}%)</li>
-          <li><FaVoteYea color="blue" /> <strong>Suffrages exprimés :</strong> {totalSuffragesExprimes}</li>
-          <li><FaTimesCircle color="orange" /> <strong>Abstentions :</strong> {totalAbstentions} ({percentageAbstentions}%)</li>
-        </ul>
+        <div className="summary-grid">
+          <div className="summary-item">
+            <CircularProgressbar
+              value={animatedValues.percentageVotes}
+              text={`${animatedValues.percentageVotes}%`}
+              styles={buildStyles({
+                pathColor: '#4CAF50',
+                textColor: '#4CAF50',
+                trailColor: '#f0f0f0'
+              })}
+            />
+            <div className="summary-text">
+              <FaCheckCircle color="green" />
+              <strong>Total votants :</strong> 
+              <span className="counter">{animatedValues.totalVotants}</span>
+            </div>
+          </div>
+
+          <div className="summary-item">
+            <CircularProgressbar
+              value={animatedValues.percentageAbstentions}
+              text={`${animatedValues.percentageAbstentions}%`}
+              styles={buildStyles({
+                pathColor: '#FF9800',
+                textColor: '#FF9800',
+                trailColor: '#f0f0f0'
+              })}
+            />
+            <div className="summary-text">
+              <FaTimesCircle color="orange" />
+              <strong>Abstentions :</strong> 
+              <span className="counter">{animatedValues.totalAbstentions}</span>
+            </div>
+          </div>
+
+          <div className="summary-item">
+            <CircularProgressbar
+              value={animatedValues.percentageNull}
+              text={`${animatedValues.percentageNull}%`}
+              styles={buildStyles({
+                pathColor: '#F44336',
+                textColor: '#F44336',
+                trailColor: '#f0f0f0'
+              })}
+            />
+            <div className="summary-text">
+              <FaPercentage color="red" />
+              <strong>Bulletins nuls :</strong> 
+              <span className="counter">{animatedValues.totalNullVotes}</span>
+            </div>
+          </div>
+
+          <div className="summary-item">
+            <div className="total-box">
+              <FaUsers size={24} />
+              <strong>Inscrits :</strong>
+              <span className="counter">{animatedValues.totalInscrits}</span>
+            </div>
+            <div className="total-box">
+              <FaVoteYea size={24} color="blue" />
+              <strong>Suffrages exprimés :</strong>
+              <span className="counter">{animatedValues.totalSuffragesExprimes}</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="centres-details">
-        <h2>📌 Détails par Arrondissement</h2>
+        <h2> < FaArchway/> Détails par Arrondissement</h2>
         {Object.entries(centres).map(([arrondissement, centreList], i) => {
           const totalArrInscrits = centreList.reduce((sum, c) => sum + c.inscrits, 0);
           const totalArrVotants = centreList.reduce((sum, c) => sum + c.votants, 0);
@@ -67,7 +183,13 @@ const BilanBureaux = () => {
           return (
             <div key={i} className="arrondissement card">
               <h3>{arrondissement}</h3>
-              <p>{totalArrVotants} votants / {totalArrInscrits} inscrits — {totalArrAbstentions} abstentions — {totalArrNuls} nuls — {totalArrExprimes} suffrages exprimés</p>
+              <p className="arrondissement-summary">
+                <span className="counter">{totalArrVotants}</span> votants / 
+                <span className="counter">{totalArrInscrits}</span> inscrits — 
+                <span className="counter">{totalArrAbstentions}</span> abstentions — 
+                <span className="counter">{totalArrNuls}</span> nuls — 
+                <span className="counter">{totalArrExprimes}</span> suffrages exprimés
+              </p>
               <table className="centre-table">
                 <thead>
                   <tr>
@@ -86,15 +208,15 @@ const BilanBureaux = () => {
                     const percentageParticipation = ((centre.votants / centre.inscrits) * 100).toFixed(1);
                     const suffragesExprimes = centre.votants - centre.nuls;
                     return (
-                      <tr key={idx}>
+                      <tr key={idx} className="fade-in-row">
                         <td>{centre.centre}</td>
-                        <td>{centre.bureaux}</td>
-                        <td>{centre.inscrits}</td>
-                        <td>{centre.votants}</td>
-                        <td>{centre.nuls}</td>
-                        <td>{suffragesExprimes}</td>
-                        <td>{percentageParticipation}%</td>
-                        <td>{centre.abstentions}</td>
+                        <td><span className="counter">{centre.bureaux}</span></td>
+                        <td><span className="counter">{centre.inscrits}</span></td>
+                        <td><span className="counter">{centre.votants}</span></td>
+                        <td><span className="counter">{centre.nuls}</span></td>
+                        <td><span className="counter">{suffragesExprimes}</span></td>
+                        <td><span className="counter">{percentageParticipation}</span>%</td>
+                        <td><span className="counter">{centre.abstentions}</span></td>
                       </tr>
                     );
                   })}

@@ -1,12 +1,35 @@
-import React from 'react';
-import './PageAccueil.css';
+import React, { useEffect, useRef } from 'react';import './PageAccueil.css';
 import logoMinistere from '../Images/drapeau.jpg'; // remplace avec ton chemin réel
 import blason from '../Images/logoministereinterieur.jpg';
+import soundFile from './son.mp3'; // Importez votre fichier audio
+
+
 
 
 const PageAccueil = () => {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    // Démarrer la musique quand le composant est monté
+    const timer = setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play()
+          .catch(error => console.log("Auto-play prevented:", error));
+      }
+    }, 10); // Délai pour synchroniser avec l'animation
+  
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <div className='presidentielle'>
+
+<audio 
+        ref={audioRef} 
+        src={soundFile} 
+      />
+
   <div className="header">
     <img
       src={logoMinistere}
