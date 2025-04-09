@@ -325,19 +325,38 @@ const CartePortGentil = () => {
           click: () => setSelectedMarker(name)
         }}
       >
-        <Popup>
+        <Popup className="animated-popup">
           <div className="popup-content">
             <h3>{name}</h3>
             {resultat && (
               <>
                 <h4>Résultats:</h4>
-                <ul>
-                  {resultat.map((candidat, i) => (
-                    <li key={i}>
-                      <strong>{candidat.nom}</strong>: {candidat.votes}
-                    </li>
-                  ))}
-                </ul>
+                <div className="results-container">
+                  {resultat.map((candidat, i) => {
+                    // Extraction de la valeur numérique (pourcentage ou voix)
+                    const voteValue = candidat.votes.includes('%') 
+                      ? parseFloat(candidat.votes.replace('%', '')) 
+                      : parseInt(candidat.votes.split(' ')[0]);
+                    
+                    return (
+                      <div key={i} className="result-item">
+                        <div className="candidate-info">
+                          <strong>{candidat.nom}</strong>
+                          <span>{candidat.votes}</span>
+                        </div>
+                        <div className="progress-bar-container">
+                          <div 
+                            className="progress-bar" 
+                            style={{ 
+                              width: `${voteValue}%`,
+                              animation: `slideIn 0.5s ease-out ${i * 0.1}s forwards`
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </>
             )}
           </div>

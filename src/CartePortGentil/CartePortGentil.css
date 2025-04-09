@@ -385,3 +385,54 @@
     }
   }
   
+
+  /* Animation des barres de progression */
+@keyframes slideIn {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animated-popup {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.results-container {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.result-item {
+  margin-bottom: 8px;
+}
+
+.candidate-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.progress-bar-container {
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  width: 0;
+  transform-origin: left;
+}
+
+/* Pour différencier les candidats */
+.result-item:nth-child(1) .progress-bar { background-color: #2196F3; }
+.result-item:nth-child(2) .progress-bar { background-color: #FF9800; }
+.result-item:nth-child(3) .progress-bar { background-color: #9C27B0; }
