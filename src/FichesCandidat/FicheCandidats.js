@@ -18,11 +18,11 @@ const candidatsData = [
 
 // Données simulées pour les votes
 const simulatedVotes = [
-  { id_candidat: 1, votes: 0 },
-  { id_candidat: 2, votes: 0 },
-  { id_candidat: 3, votes: 0 },
-  { id_candidat: 4, votes: 0 },
-  { id_candidat: 5, votes: 0 },
+  { id_candidat: 1, votes: 4560 },
+  { id_candidat: 2, votes: 564 },
+  { id_candidat: 3, votes: 3456 },
+  { id_candidat: 4, votes: 345 },
+  { id_candidat: 5, votes: 456 },
   { id_candidat: 6, votes: 0 },
   { id_candidat: 7, votes: 0 },
   { id_candidat: 8, votes: 0 },

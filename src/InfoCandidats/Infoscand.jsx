@@ -17,11 +17,11 @@ const Infoscand = () => {
 
   // Données simulées des votes
   const [votes] = useState([
-    { id_candidat: 1, votes: 0 },
-    { id_candidat: 2, votes: 0 },
-    { id_candidat: 3, votes: 0 },
-    { id_candidat: 4, votes: 0 },
-    { id_candidat: 5, votes: 0 },
+    { id_candidat: 1, votes: 454 },
+    { id_candidat: 2, votes: 4855 },
+    { id_candidat: 3, votes: 434 },
+    { id_candidat: 4, votes: 453 },
+    { id_candidat: 5, votes: 344 },
     { id_candidat: 6, votes: 0 },
     { id_candidat: 7, votes: 0 },
     { id_candidat: 8, votes: 0 },
