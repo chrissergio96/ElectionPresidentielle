@@ -1,10 +1,10 @@
 
 
 .presidentielle {
-    background-color: white;
     padding: 1px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
+
   }
   
   .header {
@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 20%;
   }
  
   .logo-gauche,
@@ -97,6 +98,41 @@
     padding-top: 3px;
     font-family: 'Times New Roman', Times, serif;
   }
+
+  /* Animation d’apparition avec zoom */
+@keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Appliquer aux logos */
+  .logo-animation {
+    animation: zoomIn 4s ease-in-out forwards;
+  }
+  
+  /* Appliquer au texte */
+  .text-fade-in {
+    animation: fadeIn 4s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   /* Responsive */
   @media (max-width: 768px) {
     .header {

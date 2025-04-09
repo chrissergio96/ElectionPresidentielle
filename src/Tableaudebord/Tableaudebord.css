@@ -1,7 +1,6 @@
 /* Conteneur principal */
 .container {
     display: flex;
-    height: 100vh;
     width: 100%;
   }
   
@@ -53,7 +52,7 @@
     margin-left: 250px;
     flex: 1;
     padding: 20px;
-    background-color: #d0e8ff;
+    background-color: white;
     overflow-y: auto;
   }
   
