@@ -4,21 +4,21 @@ import './BilanBureaux.css';
 const BilanBureaux = () => {
   const centres = {
     '1er Arrondissement': [
-      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 6000, votants: 5100, abstentions: 800, nuls: 100 },
-      { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 2000, votants: 1500, abstentions: 400, nuls: 100 },
-      { centre: 'Centre de formation Professionnel et de perfectionnement', bureaux: 8, inscrits: 1800, votants: 1600, abstentions: 150, nuls: 50 },
-      { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 1200, votants: 1000, abstentions: 150, nuls: 50 },
+      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Centre de formation Professionnel et de perfectionnement', bureaux: 8, inscrits: 3738, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 3665, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 0, abstentions: 0, nuls: 0 },
     ],
     '2e Arrondissement': [
-      { centre: 'Centre social', bureaux: 17, inscrits: 4000, votants: 3450, abstentions: 450, nuls: 100 },
-      { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 2000, votants: 1700, abstentions: 250, nuls: 50 },
-      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 1400, votants: 1200, abstentions: 150, nuls: 50 },
-      { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1000, votants: 850, abstentions: 100, nuls: 50 },
-      { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 800, votants: 700, abstentions: 80, nuls: 20 },
-      { centre: 'Ecole protestante', bureaux: 2, inscrits: 600, votants: 520, abstentions: 60, nuls: 20 },
-      { centre: 'Ecole publique ancienne balise', bureaux: 3, inscrits: 700, votants: 580, abstentions: 100, nuls: 20 },
-      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 500, votants: 420, abstentions: 60, nuls: 20 },
-      { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 400, votants: 350, abstentions: 40, nuls: 10 },
+      { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 3506, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits:2131, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655,  votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278,  votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 0, abstentions: 0, nuls: 0 },
+
     ],
   };
 

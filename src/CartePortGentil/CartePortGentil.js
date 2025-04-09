@@ -34,20 +34,33 @@ const dataArrondissements = [
     name: "1er Arrondissement",
     centre: "global",
     coords: [
-      [-0.6874841, 8.7667810], [-0.7142010, 8.7862120], [-0.7185334, 8.7774593], 
-      [-0.7163216, 8.7694520], [-0.7184652, 8.7555585], [-0.7024199, 8.7613095]
+      [-0.6763949,8.7581967], [-0.6757655,8.7672847], [-0.6786866,8.7758513], 
+      [-0.6800184,8.7787492], [-0.6856160,8.7761329], [-0.6934402,8.7741723],
+      [-0.7037351,8.7797779], [-0.7140618,8.7854582], [-0.7170793,8.7796757],
+      [-0.7181798,8.7755369], [-0.7173358,8.7723648], [-0.7212210,8.7684807],
+      [-0.7264857,8.7682324], [-0.7336191,8.7607737], [-0.7243701,8.7533377], 
+      [-0.7294196,8.7509070], [-0.7307046,8.7488853], [-0.7305424,8.7462455],
+      [-0.7277888,8.7434673], [-0.7228320,8.7424146], [-0.7187541,8.7398903],
+      [-0.7156331,8.7376060], [-0.7115383,8.7341525], [-0.7106816,8.7372944],
+      [-0.7049438,8.7538347],
     ],
     color: "blue"
   },
   {
-    name: "2e ndissement",
+    name: "2e Arrondissement",
     centre: "global",
     coords: [
-      [-0.7151979, 8.7862327], [-0.7191433, 8.7778459], [-0.7173559, 8.7689663], 
-      [-0.7196959, 8.7560876], [-0.7277240, 8.7525822], [-0.7319684, 8.7495588], 
-      [-0.7421631, 8.7596250], [-0.7455053, 8.7679787], [-0.7455053, 8.7679787], 
-      [-0.7336982, 8.7742638], [-0.7258702, 8.7800666], [-0.7258702, 8.7800666], 
-      [-0.7258702, 8.7800666], [-0.7213049, 8.7885773]
+      [-0.7143481,8.7856083], [-0.7180666,8.7866262], [-0.7186143,8.7850525],
+      [-0.7186390,8.7849961], [-0.7208434,8.7832485], [-0.7230132,8.7823176],
+      [-0.7253161,8.7805925], [-0.7341637,8.7736963], [-0.7352798,8.7729284],
+      [-0.7419608,8.7699916], [-0.7447115,8.7688556], [-0.7463084,8.7674678],
+      [-0.7474895,8.7660427], [-0.7465884,8.7655069], [-0.7470595,8.7648206], 
+      [-0.7481464,8.7650308], [-0.7507969,8.7616310], [-0.7566902,8.7496679],
+      [-0.7266918,8.7316985], [-0.7228320,8.7424146], [-0.7277888,8.7434673], [-0.7305424,8.7462455],
+      [-0.7307046,8.7488853], [-0.7294196,8.7509070],[-0.7243701,8.7533377],
+      [-0.7336191,8.7607737], [-0.7264857,8.7682324], [-0.7286262,8.7683844],
+      [-0.7254691,8.7682682], [-0.7213935,8.7686823], [-0.7174570,8.7724852],
+      [-0.7180112,8.7747043], [-0.7180390,8.7777328], [-0.7161258,8.7819010]
     ],
     color: "green" 
   },
@@ -84,14 +97,32 @@ const dataArrondissements = [
     color: "white" 
   },
   {
-    name: "Zenaba Gninga Chaning",
+    name: "Vainqueur de l'élection",
     centre: "Vainqueur",
     votes: "100%",
     coords: [
       [-0.7122964, 8.7959383],
     ],
     color: "white" 
+  }
+  ,
+  {
+    name: "1er Arrondissement",
+    centre: "Vainqr",
+    coords: [
+      [-0.6966927,8.7531276],
+    ],
+    color: "white" 
   },
+  {
+    name: "2eme Arrondissement",
+    centre: "Vainqr",
+    coords: [
+      [-0.7340159, 8.7820265],
+    ],
+    color: "white" 
+  },
+  
 
 
 
@@ -187,8 +218,8 @@ const dataArrondissements = [
     name: "Ambourouet Avaro",
     centre: "pointcentre",
     coords: [
-      [-0.7419039,8,7695710], [-0.7420648,8,7698613],
-      [-0.7425024,8,7692561], [-0.7367649,8,7696382] 
+      [-0.7419389,8.7695470], [-0.7424997,8.7692940],
+      [-0.7420804,8.7698379], [-0.7426429,8.7696000] 
     ],
    resultat: [
       { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
@@ -373,9 +404,72 @@ const CartePortGentil = () => {
           // Cas du vainqueur
           if (item.centre === "Vainqueur") {
             return (
-              <React.Fragment key={`vainqueur-${index}`}>
-                {createMarkerWithLabel(item.coords[0], vainqueurIcon, item.name, null, selectedMarker === item.name)}
-              </React.Fragment>
+              <Polygon
+                key={index}
+                positions={item.coords}
+                pathOptions={{ color: item.color }}
+              >
+                <Tooltip
+                  direction="center"
+                  permanent
+                  className="arrondissement-labelvq"
+                >
+                    <img
+                      src="https://img.freepik.com/vecteurs-libre/avatars-anonymes-cercles-gris_78370-2086.jpg?uid=R153887325&ga=GA1.1.861025298.1733141180&semt=ais_country_boost&w=740"
+                      alt="icone"
+                      style={{ width: "70%",height:"110px", marginRight: "5px" ,borderRadius:"100%"}}
+                    />
+                  <p>{item.name}</p>
+                  <span>{item.votes}de votes</span>
+                </Tooltip>
+          
+              </Polygon>
+            );
+          }
+          if (item.centre === "Vainqr") {
+            return (
+              <Polygon
+                key={index}
+                positions={item.coords}
+                pathOptions={{ color: item.color }}
+              >
+                <Tooltip
+                  direction="center"
+                  permanent
+                  className="arrondissement-labelvqA"
+                >
+                    <img
+                      src="https://scontent.flbv5-1.fna.fbcdn.net/v/t39.30808-6/438092279_2237495206592041_4332711800915834235_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFw-WyMt6rqDfrV6C3Nj_TD5P4Y-J61Qc3k_hj4nrVBzeqcriBoqnGN1hJ8XYAtetqC4y9gT8XLjEJX90AHQh1q&_nc_ohc=LiNP3oIjQjIQ7kNvwGZQSM7&_nc_oc=AdkDrd5XahEbqEi5IOWjbM9Xn-FP7zTyZT0nwUKh3n2i7SAGKAqRzo4SznTeYVffb90I_tqCtdbxLtdsxL5MvJab&_nc_zt=23&_nc_ht=scontent.flbv5-1.fna&_nc_gid=MhMKfIM6JSRUVqa7w2loiw&oh=00_AfGKRFaPFsJpw1Ojg_fs-eoZhh3BJx56W4MTr4NMa9q7GQ&oe=67FC8028"
+                      alt="icone"
+                      style={{ width: "35%",height:"55px", marginRight: "5px" ,borderRadius:"100%"}}
+                    />
+                  <p>{item.name}</p>
+                </Tooltip>
+          
+              </Polygon>
+            );
+          }
+          if (item.centre === "Vainqr") {
+            return (
+              <Polygon
+                key={index}
+                positions={item.coords}
+                pathOptions={{ color: item.color }}
+              >
+                <Tooltip
+                  direction="center"
+                  permanent
+                  className="arrondissement-labelvqA"
+                >
+                    <img
+                      src="https://scontent.flbv5-1.fna.fbcdn.net/v/t39.30808-6/438092279_2237495206592041_4332711800915834235_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFw-WyMt6rqDfrV6C3Nj_TD5P4Y-J61Qc3k_hj4nrVBzeqcriBoqnGN1hJ8XYAtetqC4y9gT8XLjEJX90AHQh1q&_nc_ohc=LiNP3oIjQjIQ7kNvwGZQSM7&_nc_oc=AdkDrd5XahEbqEi5IOWjbM9Xn-FP7zTyZT0nwUKh3n2i7SAGKAqRzo4SznTeYVffb90I_tqCtdbxLtdsxL5MvJab&_nc_zt=23&_nc_ht=scontent.flbv5-1.fna&_nc_gid=MhMKfIM6JSRUVqa7w2loiw&oh=00_AfGKRFaPFsJpw1Ojg_fs-eoZhh3BJx56W4MTr4NMa9q7GQ&oe=67FC8028"
+                      alt="icone"
+                      style={{ width: "35%",height:"55px", marginRight: "5px" ,borderRadius:"100%"}}
+                    />
+                  <p>{item.name}</p>
+                </Tooltip>
+          
+              </Polygon>
             );
           }
 
