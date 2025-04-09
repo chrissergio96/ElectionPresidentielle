@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ResultatsElection from '../ElectionResults/ElectionsResults.jsx';
 import FicheCandidats from '../FichesCandidat/FicheCandidats';
 import Infoscandidats from '../InfoCandidats/Infoscand';
 import BilanBureaux from '../BilanBureaux/BilanBureaux';
@@ -26,7 +25,6 @@ const Tableaudebord = () => {
       <div className="sidebar">
         <h2>Tableau de bord</h2>
         <ul>
-          <li><button onClick={() => handleButtonClick('resultats')}>Résultats Élection</button></li>
           <li><button onClick={() => handleButtonClick('ficheCandidats')}>Fiche Candidats</button></li>
           <li><button onClick={() => handleButtonClick('infoCandidats')}>Infos Candidats</button></li>
           <li><button onClick={() => handleButtonClick('bilanBureaux')}>Bilan Bureaux</button></li>
@@ -36,7 +34,6 @@ const Tableaudebord = () => {
       {/* Contenu principal */}
       <div className="content">
         {!activeComponent && <CartePortGentil />} {/* Affiche la carte par défaut */}
-        {activeComponent === 'resultats' && <ResultatsElection />}
         {activeComponent === 'ficheCandidats' && (
           <FicheCandidats
             selectedCandidat={selectedCandidat}

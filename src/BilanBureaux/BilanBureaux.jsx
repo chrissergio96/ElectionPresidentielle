@@ -1,5 +1,6 @@
 import React from 'react';
 import './BilanBureaux.css';
+import { FaUsers, FaCheckCircle, FaTimesCircle, FaPercentage, FaUniversity } from 'react-icons/fa';
 
 const BilanBureaux = () => {
   const centres = {
@@ -23,7 +24,6 @@ const BilanBureaux = () => {
   };
 
   const allCentres = Object.values(centres).flat();
-
   const totalInscrits = allCentres.reduce((sum, c) => sum + c.inscrits, 0);
   const totalVotants = allCentres.reduce((sum, c) => sum + c.votants, 0);
   const totalAbstentions = allCentres.reduce((sum, c) => sum + c.abstentions, 0);
@@ -35,22 +35,20 @@ const BilanBureaux = () => {
 
   return (
     <div className="bilan-bureaux">
-      <h1>🗳️ Bilan des 1er et 2eme Arrondissement de Port-Gentil</h1>
+      <h1>🗳️ Bilan des 1er et 2e Arrondissements de Port-Gentil</h1>
 
-      {/* Résumé global */}
-      <section className="global-summary">
-        <h2>📊 Résumé général</h2>
+      <section className="global-summary card">
+        <h2><FaUniversity /> Résumé général</h2>
         <ul>
-          <li><strong>Total inscrits :</strong> {totalInscrits}</li>
-          <li><strong>Total votants :</strong> {totalVotants} ({percentageVotes}%)</li>
-          <li><strong>Abstentions :</strong> {totalAbstentions} ({percentageAbstentions}%)</li>
-          <li><strong>Bulletins nuls :</strong> {totalNullVotes} ({percentageNull}%)</li>
+          <li><FaUsers /> <strong>Total inscrits :</strong> {totalInscrits}</li>
+          <li><FaCheckCircle color="green" /> <strong>Total votants :</strong> {totalVotants} ({percentageVotes}%)</li>
+          <li><FaTimesCircle color="orange" /> <strong>Abstentions :</strong> {totalAbstentions} ({percentageAbstentions}%)</li>
+          <li><FaPercentage color="red" /> <strong>Bulletins nuls :</strong> {totalNullVotes} ({percentageNull}%)</li>
         </ul>
       </section>
 
-      {/* Résultats par arrondissement */}
       <section className="centres-details">
-        <h2>🗺️ Détails par Arrondissement</h2>
+        <h2>📌 Détails par Arrondissement</h2>
         {Object.entries(centres).map(([arrondissement, centreList], i) => {
           const totalArrInscrits = centreList.reduce((sum, c) => sum + c.inscrits, 0);
           const totalArrVotants = centreList.reduce((sum, c) => sum + c.votants, 0);
@@ -58,11 +56,9 @@ const BilanBureaux = () => {
           const totalArrNuls = centreList.reduce((sum, c) => sum + c.nuls, 0);
 
           return (
-            <div key={i} className="arrondissement">
-              <h3>
-                {arrondissement} / {totalArrVotants} votants sur {totalArrInscrits} inscrits
-                — {totalArrAbstentions} abstentions — {totalArrNuls} nuls
-              </h3>
+            <div key={i} className="arrondissement card">
+              <h3>{arrondissement}</h3>
+              <p>{totalArrVotants} votants / {totalArrInscrits} inscrits — {totalArrAbstentions} abstentions — {totalArrNuls} nuls</p>
               <table className="centre-table">
                 <thead>
                   <tr>
@@ -70,21 +66,29 @@ const BilanBureaux = () => {
                     <th>Bureaux</th>
                     <th>Inscrits</th>
                     <th>Votants</th>
+                    <th>Votes / Bureau</th>
+                    <th>% Participation</th>
                     <th>Abstentions</th>
                     <th>Nuls</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {centreList.map((centre, idx) => (
-                    <tr key={idx}>
-                      <td>{centre.centre}</td>
-                      <td>{centre.bureaux}</td>
-                      <td>{centre.inscrits}</td>
-                      <td>{centre.votants}</td>
-                      <td>{centre.abstentions}</td>
-                      <td>{centre.nuls}</td>
-                    </tr>
-                  ))}
+                  {centreList.map((centre, idx) => {
+                    const votesPerBureau = (centre.votants / centre.bureaux).toFixed(1);
+                    const percentageParticipation = ((centre.votants / centre.inscrits) * 100).toFixed(1);
+                    return (
+                      <tr key={idx}>
+                        <td>{centre.centre}</td>
+                        <td>{centre.bureaux}</td>
+                        <td>{centre.inscrits}</td>
+                        <td>{centre.votants}</td>
+                        <td>{votesPerBureau}</td>
+                        <td>{percentageParticipation}%</td>
+                        <td>{centre.abstentions}</td>
+                        <td>{centre.nuls}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
