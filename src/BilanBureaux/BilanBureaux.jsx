@@ -105,6 +105,21 @@ const BilanBureaux = () => {
       <section className="global-summary card">
         <h2><FaUniversity /> Résultats Électoraux</h2>
         <div className="summary-grid">
+
+        <div className="summary-item">
+            <div className="total-box">
+              <FaUsers size={24} />
+              <strong>Inscrits :</strong>
+              <span className="counter">{animatedValues.totalInscrits}</span>
+            </div>
+            <div className="total-box">
+              <FaVoteYea size={24} color="blue" />
+              <strong>Suffrages exprimés :</strong>
+              <span className="counter">{animatedValues.totalSuffragesExprimes}</span>
+            </div>
+          </div>
+
+
           <div className="summary-item">
             <CircularProgressbar
               value={animatedValues.percentageVotes}
@@ -122,22 +137,6 @@ const BilanBureaux = () => {
             </div>
           </div>
 
-          <div className="summary-item">
-            <CircularProgressbar
-              value={animatedValues.percentageAbstentions}
-              text={`${animatedValues.percentageAbstentions}%`}
-              styles={buildStyles({
-                pathColor: '#FF9800',
-                textColor: '#FF9800',
-                trailColor: '#f0f0f0'
-              })}
-            />
-            <div className="summary-text">
-              <FaTimesCircle color="orange" />
-              <strong>Abstentions :</strong> 
-              <span className="counter">{animatedValues.totalAbstentions}</span>
-            </div>
-          </div>
 
           <div className="summary-item">
             <CircularProgressbar
@@ -156,18 +155,24 @@ const BilanBureaux = () => {
             </div>
           </div>
 
+          
           <div className="summary-item">
-            <div className="total-box">
-              <FaUsers size={24} />
-              <strong>Inscrits :</strong>
-              <span className="counter">{animatedValues.totalInscrits}</span>
-            </div>
-            <div className="total-box">
-              <FaVoteYea size={24} color="blue" />
-              <strong>Suffrages exprimés :</strong>
-              <span className="counter">{animatedValues.totalSuffragesExprimes}</span>
+            <CircularProgressbar
+              value={animatedValues.percentageAbstentions}
+              text={`${animatedValues.percentageAbstentions}%`}
+              styles={buildStyles({
+                pathColor: '#FF9800',
+                textColor: '#FF9800',
+                trailColor: '#f0f0f0'
+              })}
+            />
+            <div className="summary-text">
+              <FaTimesCircle color="orange" />
+              <strong>Abstentions :</strong> 
+              <span className="counter">{animatedValues.totalAbstentions}</span>
             </div>
           </div>
+
         </div>
       </section>
 
