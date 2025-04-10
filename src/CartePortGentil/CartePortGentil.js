@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Polygon, Popup, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import sound from './son2.mp3'; // Importez votre fichier audio
+
 import './CartePortGentil.css';
 
 // Configuration des icônes
@@ -292,6 +294,22 @@ const dataArrondissements = [
 
 const CartePortGentil = () => {
   const [selectedMarker, setSelectedMarker] = useState(null);
+   const audioRef = useRef(null);
+   const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
+
+  
+    useEffect(() => {
+      // Démarrer la musique quand le composant est monté
+      const timer = setTimeout(() => {
+        audioRef.current.volume = volume; // Applique le volume
+        if (audioRef.current) {
+          audioRef.current.play()
+            .catch(error => console.log("Auto-play prevented:", error));
+        }
+      }, 10); // Délai pour synchroniser avec l'animation
+    
+      return () => clearTimeout(timer);
+    }, []);
 
   // Fonction pour calculer le centre d'un polygone
   const getPolygonCenter = (coords) => {
@@ -398,6 +416,10 @@ const getCandidateColor = (name) => {
 
   return (
     <div className="map-wrapper">
+      <audio 
+              ref={audioRef} 
+              src={sound} 
+            />
       <MapContainer 
         center={[-0.720, 8.78]} 
         zoom={14} 
