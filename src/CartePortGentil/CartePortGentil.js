@@ -297,7 +297,6 @@ const CartePortGentil = () => {
    const audioRef = useRef(null);
    const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
 
-  
     useEffect(() => {
       // Démarrer la musique quand le composant est monté
       const timer = setTimeout(() => {
