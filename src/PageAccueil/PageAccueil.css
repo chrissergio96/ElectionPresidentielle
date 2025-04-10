@@ -143,6 +143,17 @@
     .titre {
       margin: 20px 0;
     }
+    .rectangle{
+      height: 80px;
+    }
+    .rectangle h6{
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: -9%;
+      color: #007bff;
+      padding-top: 10px;
+      font-family: 'Times New Roman', Times, serif;
+    }
   }
   /* Ajoutez ceci à votre PageAccueil.css */
 @keyframes soundFadeIn {
