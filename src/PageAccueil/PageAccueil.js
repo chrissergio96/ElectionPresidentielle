@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';import './PageAccueil.css';
-import logoMinistere from '../Images/drapeau.jpg'; // remplace avec ton chemin réel
-import blason from '../Images/logoministereinterieur.jpg';
+import logoMinistere from '../Images/drapeau-removebg-preview (3).png'  ; // remplace avec ton chemin réel
+import blason from '../Images/logoministereinterieur-removebg-preview.png';
 import soundFile from './son.mp3'; // Importez votre fichier audio
 import backgroundVideo from './video.mp4'; // Importez votre fichier audio
 
@@ -24,24 +24,22 @@ const PageAccueil = () => {
 
 
   return (
-    <div className='presidentielle'>
-  
-<video 
-  autoPlay 
-  loop 
-  muted 
-  playsInline 
-  className="video-background"
->
-  <source src={backgroundVideo} type="video/mp4" />
-</video>
 
-<audio 
-        ref={audioRef} 
-        src={soundFile} 
-      />
+    <div className='presidentielle'>
+  <audio ref={audioRef} src={soundFile} />
+  <div className='blanc'>
 
   <div className="header">
+    <div  className="video-backgroundflou" ></div>
+    <video 
+      autoPlay 
+      loop 
+      muted 
+      playsInline 
+      className="video-background"
+    >
+      <source src={backgroundVideo} type="video/mp4" />
+    </video>
     <img
       src={logoMinistere}
       alt="Logo Ministère de l'intérieur"
@@ -68,11 +66,12 @@ const PageAccueil = () => {
       className="logo-droit logo-animation"
     />
   </div>
-  
+
   <div className='rectangle text-fade-in'>
-    <h6>COMMISSION ELECTORALE LOCALE</h6>
-    <h6>1er - 2ème ARRONDISSEMENT</h6>
+    <h6 className='commission'>COMMISSION ELECTORALE LOCALE</h6>
+    <h6 className='commission'>1er - 2ème ARRONDISSEMENT</h6>
   </div>
+</div>
 </div>
 
   );
