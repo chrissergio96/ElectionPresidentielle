@@ -35,12 +35,12 @@ const BilanBureaux = () => {
       { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 0, abstentions: 0, nuls: 0 },
     ],
     '2e Arrondissement': [
-      { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 0, abstentions: 0, nuls: 200 },
+      { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 870, abstentions: 0, nuls: 200 },
       { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 3506, votants: 500, abstentions: 0, nuls: 0 },
-      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants: 4500, abstentions: 45, nuls: 0 },
+      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 82131, votants: 4500, abstentions: 45, nuls: 0 },
       { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 3000, abstentions: 0, nuls: 0 },
+      { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 7772, votants: 3000, abstentions: 0, nuls: 0 },
       { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 0, abstentions: 0, nuls: 0 },
     ],
@@ -94,7 +94,7 @@ const BilanBureaux = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [percentageVotes, percentageAbstentions, percentageNull, totalAbstentions, totalInscrits, totalNullVotes, totalSuffragesExprimes, totalVotants]);
 
   return (
     <div className="bilan-bureaux">
@@ -184,11 +184,11 @@ const BilanBureaux = () => {
             <div key={i} className="arrondissement card">
               <h3>{arrondissement}</h3>
               <p className="arrondissement-summary">
-                <span className="counter">{totalArrVotants}</span> votants / 
-                <span className="counter">{totalArrInscrits}</span> inscrits — 
+                <span className="counter">{totalArrVotants}</span> votants /  
+                <span className="counter">{totalArrInscrits}</span> inscrits —   
                 <span className="counter">{totalArrAbstentions}</span> abstentions — 
                 <span className="counter">{totalArrNuls}</span> nuls — 
-                <span className="counter">{totalArrExprimes}</span> suffrages exprimés
+                 <span className="counter">{totalArrExprimes}</span> suffrages exprimés
               </p>
               <table className="centre-table">
                 <thead>

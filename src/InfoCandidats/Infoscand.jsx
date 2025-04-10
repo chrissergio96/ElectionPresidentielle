@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Cell } from 'recharts';
 import './Infoscand.css';
 
 const Infoscand = () => {
-  // Données simulées des candidats
+  
+  
   const candidatsData = [
     { id_candidat: 1, nom: 'Alain Simplice Boungouères' },
     { id_candidat: 2, nom: 'Brice Clotaire Oligui Nguema' },
@@ -15,7 +16,7 @@ const Infoscand = () => {
     { id_candidat: 8, nom: 'Thierry Yvon Michel Ngoma' },
   ];
 
-  // Données simulées des votes
+
   const [votes] = useState([
     { id_candidat: 1, votes: 454 },
     { id_candidat: 2, votes: 4855 },
@@ -27,20 +28,32 @@ const Infoscand = () => {
     { id_candidat: 8, votes: 0 },
   ]);
 
+  // Fusionner les données des candidats et des votes
+  const mergedData = candidatsData.map(c => ({
+    name: c.nom,
+    votes: votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0
+  }));
+
+  // Trier les données par nombre de votes (décroissant)
+  const sortedData = [...mergedData].sort((a, b) => b.votes - a.votes);
+
+  
+  const barColors = ['#FFFFFF', '#FFA500', '#FF0000']; // blanc, orange, rouge
+
   return (
     <div className="info-candidats">
       <h2>Graphique des Votes</h2>
       <ResponsiveContainer width="100%" height={350}>
-        <BarChart
-          data={candidatsData.map(c => ({
-            name: c.nom,
-            votes: votes.find(v => v.id_candidat === c.id_candidat)?.votes || 0
-          }))}>
+        <BarChart data={sortedData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" tick={{ fontSize: 12 }} />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="votes" fill="#007BFF" />
+          <Bar dataKey="votes">
+            {sortedData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={barColors[index] || '#007BFF'} />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>
