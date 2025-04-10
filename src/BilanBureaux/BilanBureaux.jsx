@@ -66,7 +66,7 @@ const BilanBureaux = () => {
     }, 10);
 
     // Animation des valeurs
-    const duration = 2000; // 2 secondes
+    const duration = 4000; // 2 secondes
     const startTime = Date.now();
 
     const animate = () => {

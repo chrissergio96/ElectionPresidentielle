@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';import './PageAccueil.css';
 import logoMinistere from '../Images/drapeau.jpg'; // remplace avec ton chemin réel
 import blason from '../Images/logoministereinterieur.jpg';
 import soundFile from './son.mp3'; // Importez votre fichier audio
+import backgroundVideo from './video.mp4'; // Importez votre fichier audio
 
 
 
@@ -24,6 +25,16 @@ const PageAccueil = () => {
 
   return (
     <div className='presidentielle'>
+  
+<video 
+  autoPlay 
+  loop 
+  muted 
+  playsInline 
+  className="video-background"
+>
+  <source src={backgroundVideo} type="video/mp4" />
+</video>
 
 <audio 
         ref={audioRef} 
