@@ -34,7 +34,7 @@ const Tableaudebord = () => {
           <li><button onClick={() => handleButtonClick('accueil')}>Accueil</button></li>
           <li><button onClick={() => handleButtonClick('carte')}>Vue Carte</button></li>
           <li><button onClick={() => handleButtonClick('ficheCandidats')}>Fiche Candidats</button></li>
-          <li><button onClick={() => handleButtonClick('infoCandidats')}>Infos Candidats</button></li>
+          <li><button onClick={() => handleButtonClick('infoCandidats')}>Graphique</button></li>
           <li><button onClick={() => handleButtonClick('bilanBureaux')}>Bilan Bureaux</button></li>
         </ul>
         <img 
