@@ -9,22 +9,30 @@ const BackButton = () => {
   };
 
   return (
-    <button onClick={handleBack} style={styles.button}>
-      ⬅ Retour
-    </button>
+    <div style={styles.container}>
+      <button onClick={handleBack} style={styles.button}>
+        ⬅ Retour
+      </button>
+    </div>
   );
 };
 
 const styles = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '70px', // prend toute la hauteur de la vue pour le centrage vertical
+  },
   button: {
     backgroundColor: '#f0f0f0',
     color: '#333',
-    padding: '10px 20px',
+    padding: '10px 50px',
     border: 'none',
     borderRadius: '8px',
     cursor: 'pointer',
     fontWeight: 'bold',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+    boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
   }
 };
 

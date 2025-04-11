@@ -1,38 +1,42 @@
 import React from 'react';
+import { votesDetails } from '../VotesDetails/votesDetails'; // adapte le chemin si besoin
 import './AlainSimplice.css';
-import Alain from '../Images/alain.webp'
 
 const AlainSimplice = () => {
+  const candidat = votesDetails[7];
+
+  const totalGlobal = Object.values(candidat.arrondissement).reduce(
+    (acc, arr) => acc + arr.total,
+    0
+  );
+
   return (
-    <div className="biography-container">
-      <header className="biography-header">
-      <img src={Alain} alt="alain" />
-      <div className='alain'>
-      <h1>Alain Simplice</h1>
-      <h3>Responsable de projets éducatifs</h3>
-      </div>
-       
-      </header>
-      
-      <section className="bio-section">
-        <div className='bio'>
-        <h2>Biographie</h2>
-        <p>Alain Simplice est diplômé en gestion d'entreprise avec 10 ans d'expérience dans la gestion de projets éducatifs. Il a contribué à la mise en place de stratégies pour améliorer les performances dans plusieurs établissements scolaires.</p>
+    <div className="detail-candidat">
+      <h2>{candidat.nom}</h2>
+      <h4>{candidat.titre}</h4>
+      <img src={`/${candidat.photo}`} alt={candidat.nom} style={{ width: '200px', borderRadius: '8px' }} />
+      <p style={{ maxWidth: '600px' }}>{candidat.bio}</p>
 
+      <h3>Total des votes : {totalGlobal}</h3>
+
+      {Object.entries(candidat.arrondissement).map(([nomArrondissement, arrData]) => (
+        <div key={nomArrondissement}>
+          <h4>{nomArrondissement} — {arrData.total} votes ({((arrData.total / totalGlobal) * 100).toFixed(2)}%)</h4>
+
+          {Object.entries(arrData.centres).map(([nomCentre, centreData]) => (
+            <div key={nomCentre} style={{ marginLeft: '20px' }}>
+              <strong>{nomCentre} — {centreData.total} votes ({((centreData.total / arrData.total) * 100).toFixed(2)}%)</strong>
+              <ul>
+                {Object.entries(centreData.bureaux).map(([nomBureau, votes]) => (
+                  <li key={nomBureau}>
+                    {nomBureau} : {votes} votes ({((votes / centreData.total) * 100).toFixed(2)}%)
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </section>
-
-      <section className="results-section">
-        <h2>Résultats par centre/bureau</h2>
-        <ul>
-          <li><h3>Centre A</h3><p>Taux de réussite : 75%</p></li>
-          <li><h3>Centre B</h3><p>Taux de réussite : 82%</p></li>
-        </ul>
-      </section>
-
-      <section className="contact-section">
-        <button>Contactez Alain Simplice</button>
-      </section>
+      ))}
     </div>
   );
 };
