@@ -26,6 +26,7 @@ const Tableaudebord = () => {
   };
 
   return (
+    <div className="containerparent">
     <div className="container">
       {/* Barre latérale */}
       <div className="sidebar">
@@ -48,7 +49,8 @@ const Tableaudebord = () => {
       </div>
 
       {/* Contenu principal */}
-      <div className="content">
+      <div className="content1">
+        <div className="content">
         {!activeComponent && <Accueil />}
         {activeComponent === 'ficheCandidats' && (
           <FicheCandidats
@@ -60,7 +62,15 @@ const Tableaudebord = () => {
         {activeComponent === 'carte' && <CartePortGentil />}
         {activeComponent === 'accueil' && <PageAccueil />}
         {activeComponent === 'bilanBureaux' && <BilanBureaux />}
+        </div>
+        
       </div>
+    </div>
+    <div className="drap">
+          <div className="coul1"></div>
+          <div className="coul2"></div>
+          <div className="coul3"></div>
+        </div>
     </div>
   );
 };
