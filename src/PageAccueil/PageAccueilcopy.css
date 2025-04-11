@@ -1,0 +1,229 @@
+
+
+.presidentielle {
+  padding: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 90vh;
+
+
+}
+
+.header {
+  
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 93vh;
+    overflow: hidden;
+    padding: 5px;
+ 
+}
+
+.logo-gauche,
+.logo-droit {
+  height:160px;
+  width: 160px;
+  background-color: none;
+  position: inherit;
+  z-index: 1000;
+  
+}
+.blanc{
+  background-color: white;
+  z-index: 1;
+  height: max-content;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.logo-gabon{
+  height: 18px;
+  width:100px ;
+  margin-top: 2%;
+  margin-left: -4px;
+
+}
+
+.titre {
+  flex: 1;
+  z-index: 1000;
+
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 20px;
+  color: #1B3D71;
+  margin-top: -7%;
+}
+.text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1000;
+}
+
+.mereelec1{
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.titre1{
+  text-align: center;
+    color: #2c3e50;
+    margin-bottom: 0rem;
+    font-size: 28px;
+    width: 100%;
+}
+.elections1 {
+  color: black;
+  font-size: 32px;
+  display: flex;
+  font-weight: 550;
+  justify-content: center;
+}
+.elections1 P{
+  color: black;
+  font-size: 17px;
+  margin-left: 4%;
+  z-index: 1000;
+  margin-top: 8px;
+}
+
+.presidentielle-text1 {
+ display: flex;
+ justify-content: center;
+ margin-bottom: -10%;
+}
+.presidentielle-text1 h4{
+  font-size: 35px;
+  margin-top: -2%;
+  z-index: 1000;
+  color: yellow;
+  font-weight: 550;
+}
+.titrepresi1{
+  flex: 1;
+  z-index: 1000;
+  text-align: start;
+  font-size: 32px;
+  margin: 0 20px;
+  color: #1B3D71;
+  font-weight: 650;
+}
+
+
+.annee {
+  color: #007bff; /* bleu */
+  font-size: 30px;
+}
+
+
+.rectangle1{
+  height: 50px;
+  width: 600px;
+  background-color: beige;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rectangle1 h6{
+  font-size: 18px;
+  text-align: center;
+  color: #007bff;
+  margin: 2px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Animation d’apparition avec zoom */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Appliquer aux logos */
+.logo-animation {
+  animation: zoomIn 4s ease-in-out forwards;
+}
+
+/* Appliquer au texte */
+.text-fade-in {
+  animation: fadeIn 4s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .titre {
+    margin: 20px 0;
+  }
+}
+/* Ajoutez ceci à votre PageAccueil.css */
+@keyframes soundFadeIn {
+0% { opacity: 0; }
+30% { opacity: 0.3; }
+100% { opacity: 0.3; }
+}
+
+.presidentielle::after {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.01);
+animation: soundFadeIn 4s forwards;
+pointer-events: none;
+}
+
+.video-background {
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .video-backgroundflou {
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #ffffff68;
+    z-index: 1;
+    pointer-events: none;
+  }
+

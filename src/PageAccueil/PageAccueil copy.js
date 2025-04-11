@@ -1,13 +1,13 @@
-import React, { useEffect, useRef,useState } from 'react';import './PageAccueil.css';
+import React, { useEffect, useRef,useState } from 'react';import './PageAccueilcopy.css';
 import logoMinistere from '../Images/drapeau-removebg-preview (3).png'  ; // remplace avec ton chemin réel
 import blason from '../Images/logoministereinterieur-removebg-preview.png';
-import backgroundVideo from './video.mp4'; // Importez votre fichier audio
 import soundFile from './son.mp3'; // Importez votre fichier audio
+import backgroundVideo from './video.mp4'; // Importez votre fichier audio
+
 
 
 
 const PageAccueil = () => {
-
   const audioRef = useRef(null);
      const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
   
@@ -25,11 +25,11 @@ const PageAccueil = () => {
     return () => clearTimeout(timer);
   }, []);
 
+
   return (
 
     <div className='presidentielle'>
-        <audio ref={audioRef} src={soundFile} />
-      
+  <audio ref={audioRef} src={soundFile} />
   <div className='blanc'>
 
   <div className="header">
@@ -49,31 +49,37 @@ const PageAccueil = () => {
       className="logo-gauche logo-animation"
     />
 
-    <div className='mereelec text-fade-in'>
-      <h1 className="titre">
-        <span className="elections">
+<div className="text">
+
+    <div className='mereelec1 text-fade-in'>
+      <h1 className="titre1">
+        <span className="elections1">
           ÉLECTION
           <img src="https://d24irw6hr5upwc.cloudfront.net/641-large_default/drapeau-gabon-5075-cm.jpg" alt="carte" className="logo-gabon" />
           <p>12 AVRIL</p>
         </span>
       </h1>
 
-      <h1 className='titrepresi'>
-        <span className="presidentielle-text">PRÉSIDENTIELLE <h4>2025</h4></span>
+      <h1 className='titrepresi1'>
+        <span className="presidentielle-text1">PRÉSIDENTIELLE <h4>2025</h4></span>
       </h1>
     </div>
+    <div className='rectangle1 text-fade-in'>
+    <h6 className='commission'>COMMISSION ELECTORALE LOCALE</h6>
+    <h6 className='commission'>1er - 2ème ARRONDISSEMENT</h6>
+  </div>
+
+</div>
 
     <img
       src={blason}
       alt="Blason officiel"
       className="logo-droit logo-animation"
     />
+
   </div>
 
-  <div className='rectangle text-fade-in'>
-    <h6 className='commission'>COMMISSION ELECTORALE LOCALE</h6>
-    <h6 className='commission'>1er - 2ème ARRONDISSEMENT</h6>
-  </div>
+  
 </div>
 </div>
 
@@ -81,6 +87,3 @@ const PageAccueil = () => {
 };
 
 export default PageAccueil;
-
-
-
