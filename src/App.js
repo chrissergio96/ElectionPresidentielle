@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TableauBoard from './Pages/TableauBoard';
-import ResultatsElection from './Pages/ResultatsElection';
 import PageAccueil from './PageAccueil/PageAccueil copy';
 import Candidats from './Pages/Candidats';
 import BilanBureaux from './Pages/Bilanbureau';
@@ -16,6 +15,7 @@ import Stephangermain from './Pages/Candidatures/Stephangermain';
 import Thierryyvon from './Pages/Candidatures/Thierryyvon';
 import Accueil from './Pages/Accueil';
 import soundFile from './son.mp3';
+import CandidatDetails from './CandidatsDetails/CandidatDetails';
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
@@ -66,11 +66,11 @@ function App() {
          <PageAccueil onUserInteraction={() => audioRef.current.play()} />// Affiche la page d'accueil pendant 10 secondes
         ) : (
           <Routes>
+            <Route path="/candidat/:id" element={<CandidatDetails />} />
             <Route path="/" element={<TableauBoard />} />
             <Route path="/bilan-bureau" element={<BilanBureaux />} />
             <Route path="/candidats" element={<Candidats/>} />
             <Route path="/fiche-candidats" element={<FicheCandidat />} />
-            <Route path="/resultat-elections" element={<ResultatsElection />} />
             <Route path="/Zenaba Gninga Chaning : Militante pour la jeunesse" element={<Zenabacandidat />} />
             <Route path="/Brice Clotaire Oligui Nguema : Président de la Transition" element={<Oliguicandidat />} />
             <Route path="/Alain-Claude Bilié By Nzé : Ancien Ministre" element={<Billiebinze />} />
