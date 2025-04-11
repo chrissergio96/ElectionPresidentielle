@@ -5,8 +5,8 @@ import './Dashboard.css';
 function Dashboard() {
   // Données simulées des statistiques
   const [stats] = useState({
-    total_electeurs: 50000,
-    votants: 40000,
+    total_electeurs: 33637,
+    votants: 30000,
     taux_participation: 80,
     taux_abstention: 20,
   });
@@ -35,7 +35,7 @@ function Dashboard() {
     { id_candidat: 8, votes: 600 },
   ]);
 
-  const totalVotes = 40000;
+  const totalVotes = 30000;
 
   const chartData = {
     labels: candidatsData.map(c => c.nom),
