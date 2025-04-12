@@ -77,9 +77,9 @@ const dataArrondissements = [
     ],
     winner: "Candidat B",
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "90%" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "5%" },
-      { nom: "Zenaba Gninga Chaning", votes: "2%" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0%" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0%" },
+      { nom: "Zenaba Gninga Chaning", votes: "0%" },
     ],
     color: "white" 
   },
@@ -92,16 +92,16 @@ const dataArrondissements = [
       [-0.7180088, 8.7767323]
     ],
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "90%" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "5%" },
-      { nom: "Zenaba Gninga Chaning", votes: "2%" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0%" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0%" },
+      { nom: "Zenaba Gninga Chaning", votes: "0%" },
     ],
     color: "white" 
   },
   {
     name: "Vainqueur de l'élection",
     centre: "Vainqueur",
-    votes: "100%",
+    votes: "0%",
     coords: [
       [-0.7122964, 8.7959383],
     ],
@@ -137,9 +137,9 @@ const dataArrondissements = [
       [-0.7213145, 8.7686883], [-0.7210522, 8.7683583], 
     ],
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   },
@@ -151,9 +151,9 @@ const dataArrondissements = [
       [-0.7123888, 8.7738867], [-0.7118331, 8.7752086], 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "1661 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "106 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "17 voix" },
     ],
     color: "white" 
   },
@@ -165,9 +165,9 @@ const dataArrondissements = [
       [-0.7177276, 8.7778267], [-0.7170621, 8.7775471] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "1664 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "106 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "17 voix" },
     ],
     color: "white" 
   },
@@ -175,13 +175,13 @@ const dataArrondissements = [
     name: "Ecole de la cité",
     centre: "pointcentre",
     coords: [
-      [-0.7111996, 8.7695500], [-0.7115688, 8.7690017],
+      [-0.7111996, 8.7695500], [-0.7115688, 8.76017],
       [-0.7120515,8.7693020], [-0.7115681, 8.7700081] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -194,9 +194,9 @@ const dataArrondissements = [
       [-0.7273580,8.7736724], [-0.7273882, 8.7741155] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -209,9 +209,9 @@ const dataArrondissements = [
       [-0.7366034,8.7717113], [-0.7367649, 8.7720348] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -224,9 +224,9 @@ const dataArrondissements = [
       [-0.7420804,8.7698379], [-0.7426429,8.7696000] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -239,9 +239,9 @@ const dataArrondissements = [
       [-0.7197726,8.7762825], [-0.7192183,8.7764948] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -254,9 +254,9 @@ const dataArrondissements = [
       [-0.7310974,8.7744700], [-0.7310467,8.7739357] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -269,9 +269,9 @@ const dataArrondissements = [
       [-0.7198835,8.7727842], [-0.7191639,8.7730718] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
     ],
     color: "white" 
   }
@@ -284,9 +284,9 @@ const dataArrondissements = [
       [-0.7236612,8.7789897], [-0.7234427,8.7795503] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "1250 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "900 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "800 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "269 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "17 voix" },
+      { nom: "Zenaba Gninga Chaning", votes: "4 voix" },
     ],
     color: "white" 
   }
