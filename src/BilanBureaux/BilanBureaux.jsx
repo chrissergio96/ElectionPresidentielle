@@ -37,7 +37,8 @@ const BilanBureaux = () => {
     '2e Arrondissement': [
       { centre: 'Centre social', bureaux: 17, inscrits: 8459, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole publique Abbe YOYA', bureaux: 8, inscrits: 3506, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants:0, abstentions: 0, nuls: 0 },
+
+      { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 0, abstentions: 0, nuls: 0 },
