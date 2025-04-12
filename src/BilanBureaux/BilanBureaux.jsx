@@ -31,7 +31,7 @@ const BilanBureaux = () => {
     '1er Arrondissement': [
       { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Centre de formation Professionnel et de perfectionnement', bureaux: 8, inscrits: 3738, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 3665, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 3665, votants: 1890, abstentions: 1775, nuls: 69 },
       { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 0, abstentions: 0, nuls: 0 },
     ],
     '2e Arrondissement': [
@@ -42,9 +42,9 @@ const BilanBureaux = () => {
       { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 3000, abstentions: 0, nuls: 0 },
       { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278, votants: 0, abstentions: 0, nuls: 0 },
-      { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 309, abstentions: 299, nuls: 15 },
     ],
-  };
+  }; 
 
   const allCentres = Object.values(centres).flat();
   const totalInscrits = allCentres.reduce((sum, c) => sum + c.inscrits, 0);
