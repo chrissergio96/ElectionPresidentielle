@@ -77,9 +77,9 @@ const dataArrondissements = [
     ],
     winner: "Candidat B",
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "0%" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "0%" },
-      { nom: "Zenaba Gninga Chaning", votes: "0%" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "92.284%" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "4.59%" },
+      { nom: "Joseph Lapensée ESSINGONE", votes: "1%" },
     ],
     color: "white" 
   },
@@ -92,16 +92,16 @@ const dataArrondissements = [
       [-0.7180088, 8.7767323]
     ],
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "0%" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "0%" },
-      { nom: "Zenaba Gninga Chaning", votes: "0%" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "90.14%" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "4.39%" },
+      { nom: "Joseph Lapensée ESSINGONE", votes: "0.93%" },
     ],
     color: "white" 
   },
   {
-    name: "Vainqueur de l'élection",
+    name: "Brice Clotaire Oligui Nguema",
     centre: "Vainqueur",
-    votes: "100%",
+    votes: "91.121%",
     coords: [
       [-0.7122964, 8.7959383],
     ],
@@ -137,9 +137,9 @@ const dataArrondissements = [
       [-0.7213145, 8.7686883], [-0.7210522, 8.7683583], 
     ],
     resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "0 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "0 voix" },
-      { nom: "Zenaba Gninga Chaning", votes: "0 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "2606 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "93 voix" },
+      { nom: "Joseph Lapensée ESSINGONE", votes: "29 voix" },
     ],
     color: "white" 
   },
@@ -239,9 +239,9 @@ const dataArrondissements = [
       [-0.7197726,8.7762825], [-0.7192183,8.7764948] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "585 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "24 voix" },
-      { nom: "Joseph Lapensée ESSINGONE", votes: "6 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "775 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "39 voix" },
+      { nom: "Joseph Lapensée ESSINGONE", votes: "8 voix" },
     ],
     color: "white" 
   }
@@ -254,9 +254,9 @@ const dataArrondissements = [
       [-0.7310974,8.7744700], [-0.7310467,8.7739357] 
     ],
    resultat: [
-      { nom: "Brice Clotaire Oligui Nguema", votes: "311 voix" },
-      { nom: "Alain Claude Billie-Bi-Nze", votes: "22 voix" },
-      { nom: "Alain Simplice BOUENGOUERES", votes: "4 voix" },
+      { nom: "Brice Clotaire Oligui Nguema", votes: "488 voix" },
+      { nom: "Alain Claude Billie-Bi-Nze", votes: "31 voix" },
+      { nom: "Alain Simplice BOUENGOUERES", votes: "6 voix" },
     ],
     color: "white" 
   }

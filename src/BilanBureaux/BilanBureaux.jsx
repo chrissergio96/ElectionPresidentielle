@@ -29,7 +29,7 @@ const BilanBureaux = () => {
 
   const centres = {
     '1er Arrondissement': [
-      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 0, abstentions: 0, nuls: 47 },
+      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 2898, abstentions: 2347, nuls: 47 },
       { centre: 'Centre de formation Professionnel et de perfectionnement', bureaux: 8, inscrits: 3738, votants: 1919, abstentions: 1812, nuls: 107 },
       { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 3665, votants: 1890, abstentions: 1775, nuls: 69 },
       { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 1224, abstentions: 1216, nuls: 54 },
@@ -40,9 +40,7 @@ const BilanBureaux = () => {
 
       { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants:1139, abstentions: 992, nuls: 84 },
       { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655, votants: 899, abstentions: 756, nuls: 12 },
-
-
-      { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
+      { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 577, abstentions: 563, nuls: 70 },
       { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 296, abstentions: 476, nuls: 15 },
       { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278, votants: 124, abstentions: 154, nuls: 8 },
       { centre: 'Ecole protestante', bureaux: 2, inscrits: 608, votants: 309, abstentions: 299, nuls: 15 },
