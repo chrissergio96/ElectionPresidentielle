@@ -40,6 +40,8 @@ const BilanBureaux = () => {
 
       { centre: 'Ecole publique AMBOUROUE AVARO', bureaux: 5, inscrits: 2131, votants:1139, abstentions: 992, nuls: 84 },
       { centre: 'Ecole Sainte Therese', bureaux: 4, inscrits: 1655, votants: 899, abstentions: 756, nuls: 12 },
+
+
       { centre: 'Ecole publique Ancienne Balise', bureaux: 3, inscrits: 1140, votants: 0, abstentions: 0, nuls: 0 },
       { centre: 'Ecoles du stade blanc 1-balise', bureaux: 2, inscrits: 772, votants: 296, abstentions: 476, nuls: 15 },
       { centre: 'Ecole du stade blanc 2 - Henri Clement', bureaux: 1, inscrits: 278, votants: 124, abstentions: 154, nuls: 8 },
