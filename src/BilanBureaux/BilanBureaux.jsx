@@ -29,7 +29,7 @@ const BilanBureaux = () => {
 
   const centres = {
     '1er Arrondissement': [
-      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 2898, abstentions: 2347, nuls: 47 },
+      { centre: 'Ecole publique Balise 2 - Ngadi', bureaux: 11, inscrits: 5245, votants: 2898, abstentions: 2347, nuls: 113 },
       { centre: 'Centre de formation Professionnel et de perfectionnement', bureaux: 8, inscrits: 3738, votants: 1919, abstentions: 1812, nuls: 107 },
       { centre: 'Lycee Joseph Ambouroue AVARO', bureaux: 8, inscrits: 3665, votants: 1890, abstentions: 1775, nuls: 69 },
       { centre: 'Ecole publique de la cite', bureaux: 5, inscrits: 2440, votants: 1224, abstentions: 1216, nuls: 54 },
