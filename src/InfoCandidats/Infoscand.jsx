@@ -18,14 +18,14 @@ const Infoscand = () => {
 
 
   const [votes] = useState([
-    { id_candidat: 1, votes: 0 },
-    { id_candidat: 2, votes: 0 },
-    { id_candidat: 3, votes: 0 },
-    { id_candidat: 4, votes: 0 },
-    { id_candidat: 5, votes: 0 },
-    { id_candidat: 6, votes: 0 },
-    { id_candidat: 7, votes: 0 },
-    { id_candidat: 8, votes: 0 },
+    { id_candidat: 1, votes: 70 },
+    { id_candidat: 2, votes:14955 },
+    { id_candidat: 3, votes: 138 },
+    { id_candidat: 4, votes: 156 },
+    { id_candidat: 5, votes: 84 },
+    { id_candidat: 6, votes: 59 },
+    { id_candidat: 7, votes: 738 },
+    { id_candidat: 8, votes: 76 },
   ]);
 
   // Fusionner les données des candidats et des votes
