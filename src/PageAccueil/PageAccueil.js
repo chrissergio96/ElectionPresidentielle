@@ -2,28 +2,27 @@ import React, { useEffect, useRef,useState } from 'react';import './PageAccueil.
 import logoMinistere from '../Images/drapeau-removebg-preview (3).png'  ; // remplace avec ton chemin réel
 import blason from '../Images/logoministereinterieur-removebg-preview.png';
 import backgroundVideo from './video.mp4'; // Importez votre fichier audio
-import soundFile from './son.mp3'; // Importez votre fichier audio
+// Importez votre fichier audio
 
 
 
 const PageAccueil = () => {
 
-  const audioRef = useRef(null);
-     const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
+ // Volume par défaut à 50%
   
 
-  useEffect(() => {
-    // Démarrer la musique quand le composant est monté
-    const timer = setTimeout(() => {
-      audioRef.current.volume = volume; // Applique le volume
-      if (audioRef.current) {
-        audioRef.current.play()
-          .catch(error => console.log("Auto-play prevented:", error));
-      }
-    }, 10); // Délai pour synchroniser avec l'animation
+  // useEffect(() => {
+  //   // Démarrer la musique quand le composant est monté
+  //   const timer = setTimeout(() => {
+  //     audioRef.current.volume = volume; // Applique le volume
+  //     if (audioRef.current) {
+  //       audioRef.current.play()
+  //         .catch(error => console.log("Auto-play prevented:", error));
+  //     }
+  //   }, 10); // Délai pour synchroniser avec l'animation
   
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
 
