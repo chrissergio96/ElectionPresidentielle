@@ -9,7 +9,7 @@ import backgroundVideo from './video.mp4'; // Importez votre fichier audio
 
 const PageAccueil = () => {
   const audioRef = useRef(null);
-     const [volume, setVolume] = useState(0.00); // Volume par défaut à 50%
+     const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
   
 
   useEffect(() => {
