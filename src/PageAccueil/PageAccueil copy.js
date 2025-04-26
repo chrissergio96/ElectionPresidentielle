@@ -29,7 +29,7 @@ const PageAccueil = () => {
   return (
 
     <div className='presidentielle'>
-  <audio ref={audioRef} src={soundFile} />
+  <audio ref={audioRef} src={soundFile} loop={false}  />
   <div className='blanc'>
 
   <div className="header">
