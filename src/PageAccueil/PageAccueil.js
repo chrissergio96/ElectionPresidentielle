@@ -27,7 +27,7 @@ const PageAccueil = () => {
   return (
 
     <div className='presidentielle'>
-        <audio ref={audioRef} src={soundFile} />
+     
       
   <div className='blanc'>
 
