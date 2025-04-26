@@ -8,28 +8,17 @@ import backgroundVideo from './video.mp4'; // Importez votre fichier audio
 
 
 const PageAccueil = () => {
-  const audioRef = useRef(null);
-     const [volume, setVolume] = useState(0.08); // Volume par défaut à 50%
+   // Volume par défaut à 50%
   
 
-  useEffect(() => {
-    // Démarrer la musique quand le composant est monté
-    const timer = setTimeout(() => {
-      audioRef.current.volume = volume; // Applique le volume
-      if (audioRef.current) {
-        audioRef.current.play()
-          .catch(error => console.log("Auto-play prevented:", error));
-      }
-    }, 10); // Délai pour synchroniser avec l'animation
   
-    return () => clearTimeout(timer);
-  }, []);
+    // Démarrer la musique quand le composant est monté
+    
 
 
   return (
 
     <div className='presidentielle'>
-  <audio ref={audioRef} src={soundFile} loop={false}  />
   <div className='blanc'>
 
   <div className="header">
