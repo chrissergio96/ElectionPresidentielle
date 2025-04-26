@@ -35,8 +35,7 @@ const PageAccueil = () => {
   <div className="header">
     <div  className="video-backgroundflou" ></div>
     <video 
-      autoPlay 
-      loop 
+      autoPlay  
       muted 
       playsInline 
       className="video-background"
