@@ -531,11 +531,7 @@ const getCandidateColor = (name) => {
                   permanent
                   className="arrondissement-labelvqA"
                 >
-                    // <img
-                    //   src="https://scontent.flbv5-1.fna.fbcdn.net/v/t39.30808-6/438092279_2237495206592041_4332711800915834235_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFw-WyMt6rqDfrV6C3Nj_TD5P4Y-J61Qc3k_hj4nrVBzeqcriBoqnGN1hJ8XYAtetqC4y9gT8XLjEJX90AHQh1q&_nc_ohc=LiNP3oIjQjIQ7kNvwGZQSM7&_nc_oc=AdkDrd5XahEbqEi5IOWjbM9Xn-FP7zTyZT0nwUKh3n2i7SAGKAqRzo4SznTeYVffb90I_tqCtdbxLtdsxL5MvJab&_nc_zt=23&_nc_ht=scontent.flbv5-1.fna&_nc_gid=MhMKfIM6JSRUVqa7w2loiw&oh=00_AfGKRFaPFsJpw1Ojg_fs-eoZhh3BJx56W4MTr4NMa9q7GQ&oe=67FC8028"
-                    //   alt="icone"
-                    //   style={{ width: "35%",height:"55px", marginRight: "5px" ,borderRadius:"100%"}}
-                    // />
+                  
                   <p>{item.name}</p>
                 </Tooltip>
           
